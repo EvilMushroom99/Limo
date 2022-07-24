@@ -38,13 +38,16 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (ObjectManager.Instance.IsThereAnyTower())
+        if (!GameManager.Instance.warTime)
         {
-            buttons[0].SetActive(true);
-        }
-        else
-        {
-            buttons[0].SetActive(false);
+            if (ObjectManager.Instance.IsThereAnyTower())
+            {
+                buttons[0].SetActive(true);
+            }
+            else
+            {
+                buttons[0].SetActive(false);
+            }
         }
     }
 
@@ -122,7 +125,7 @@ public class UIManager : MonoBehaviour
 
     public void EnableButtons()
     {
-        for(int i = 0; i < buttons.Length; i++)
+        for (int i = 0; i < buttons.Length; i++)
         {
             buttons[i].SetActive(true);
         }
@@ -138,7 +141,6 @@ public class UIManager : MonoBehaviour
         inventory1.SetActive(false);
         inventory2.SetActive(false);
         inventory3.SetActive(false);
-        inventoryG.SetActive(false);
     }
 
 }

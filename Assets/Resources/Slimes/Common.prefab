@@ -122,6 +122,8 @@ MonoBehaviour:
   attack: 10
   attackSpeed: 1.2
   velocity: 1
+  appearTime: 1.25
+  deathParticle: {fileID: 5188001435322071364, guid: 9fca5f1f66e3c22439505d31cf335664, type: 3}
 --- !u!50 &63943961226547830
 Rigidbody2D:
   serializedVersion: 4
@@ -153,7 +155,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0025531393, y: 0.032754723}
@@ -176,7 +178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4856438164165067498
 Transform:
   m_ObjectHideFlags: 0

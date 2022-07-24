@@ -8,44 +8,50 @@ public class SlimeController : MonoBehaviour
     [SerializeField] private int attack;
     [SerializeField] private float attackSpeed;
     [SerializeField] private float velocity;
+    [SerializeField] private float appearTime;
+
+    [SerializeField] private GameObject deathParticle;
 
     private Animator anim;
+    private Rigidbody2D rb;
+
     private bool targetFound;
-    private bool targetReached;
     private bool attacking;
-    private bool jumping;
     private GameObject currentTarget;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        if (!targetFound)
+        if (appearTime <= 0f)
         {
-            currentTarget = ObjectManager.Instance.GetClosestBuilding(transform.position);
-            if (currentTarget != null)
+            if (!targetFound)
             {
-                targetFound = true;
+                currentTarget = ObjectManager.Instance.GetClosestBuilding(transform.position);
+                if (currentTarget != null)
+                {
+                    targetFound = true;
+                }
+                else
+                {
+                    targetFound = false;
+                }
+
             }
-            else
+            else if (Vector2.Distance(transform.position, currentTarget.transform.position) < 0.35f)
             {
-                targetReached = false;
-                targetFound = false;
-            }
-            
-        }
-        else if(!targetReached && jumping)
-        {
-            if(Vector2.Distance(transform.position, currentTarget.transform.position) < 0.5f)
-            {
-                targetReached = true;
                 if (!attacking)
                 {
                     attacking = true;
-                    StartCoroutine(MakeDamage());
+
+                    if (currentTarget.transform.position.x < transform.position.x)
+                    {
+                        transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+                    }
                 }
             }
             else
@@ -53,47 +59,68 @@ public class SlimeController : MonoBehaviour
                 if (attacking)
                 {
                     attacking = false;
-                    StopAllCoroutines();
+                    currentTarget = ObjectManager.Instance.GetClosestBuilding(transform.position);
+                    if (currentTarget != null)
+                    {
+                        targetFound = true;
+                    }
+                    else
+                    {
+                        targetFound = false;
+                    }
                 }
-
-                transform.position = Vector2.MoveTowards(transform.position, currentTarget.transform.position, velocity * Time.deltaTime);
             }
 
-        }
-
-        if (currentTarget)
-        {
-            if (!currentTarget.activeInHierarchy)
+            if (currentTarget)
             {
-                targetReached = false;
-                targetFound = false;
-                currentTarget = null;
-                attacking = false;
-                StopAllCoroutines();
+                if (!currentTarget.activeInHierarchy)
+                {
+                    targetFound = false;
+                    currentTarget = null;
+                    attacking = false;
+                }
             }
+        }
+        else
+        {
+            appearTime -= Time.deltaTime;
         }
     }
 
     private void LateUpdate()
     {
-        if (targetFound)
+        if (appearTime <= 0f)
         {
-            anim.Play("walk");
-        }
-        else 
-        {
-            anim.Play("idle");
+            if (targetFound)
+            {
+                if (attacking)
+                {
+                    anim.Play("attack");
+                }
+                else
+                {
+                    anim.Play("walk");
+                }
+            }
+            else
+            {
+                anim.Play("idle");
+            }
         }
     }
 
     public void MoveSlime()
     {
-        jumping = true;
+        if (targetFound)
+        {
+            Vector3 direction = currentTarget.transform.position - transform.localPosition;
+            rb.AddForce(direction.normalized * velocity, ForceMode2D.Impulse);
+        }
     }
 
     public void StopSlime()
     {
-        jumping = false;
+        rb.velocity = Vector2.zero;
     }
 
     public void TakeDamage(int damage)
@@ -102,16 +129,20 @@ public class SlimeController : MonoBehaviour
         if (life <= 0)
         {
             GameManager.Instance.totalSlimes -= 1;
+            GameObject particle = Instantiate(deathParticle);
+            particle.transform.position = transform.position;
             Destroy(gameObject);
         }
     }
 
-    IEnumerator MakeDamage()
+    public void MakeDamage()
     {
-        while (currentTarget)
+        if (currentTarget)
         {
-            currentTarget.GetComponentInParent<Building>().TakeDamage(attack);
-            yield return new WaitForSeconds(attackSpeed);
+            if (currentTarget.activeInHierarchy)
+            {
+                currentTarget.GetComponentInParent<Building>().TakeDamage(attack);
+            }
         }
     }
 

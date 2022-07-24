@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2286752148463488641}
   - component: {fileID: 2286752148463488640}
   - component: {fileID: 2286752148463488643}
+  - component: {fileID: 2059179792858934326}
   m_Layer: 0
   m_Name: LittleYellow
   m_TagString: Wood
@@ -131,3 +132,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.31568193, y: 0.31118864}
   m_EdgeRadius: 0
+--- !u!114 &2059179792858934326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2286752148463488642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9324fff1bc08a2646bbf6adb36bebf5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  area:
+    m_Position: {x: 0, y: 0, z: 0}
+    m_Size: {x: 1, y: 1, z: 1}

@@ -23,7 +23,8 @@ public class Building : MonoBehaviour
         Tower,
         House,
         Sawmill,
-        Wheat
+        Wheat,
+        Tree
     }
 
     [SerializeField] private BuildingType buildingType;
@@ -46,10 +47,10 @@ public class Building : MonoBehaviour
     public void TakeDamage(int damage)
     {
         life -= damage;
+
         if (life <= 0)
         {
             DestroyBuilding();
-            gameObject.SetActive(false);
         }
 
         slider.value = life;
@@ -61,7 +62,6 @@ public class Building : MonoBehaviour
         BoundsInt areaTemp = area;
 
         areaTemp.position = positionInt;
-
         if (GridBuildingSystem.current.CanTakeArea(areaTemp))
         {
             return true;
@@ -78,7 +78,6 @@ public class Building : MonoBehaviour
         areaTemp.position = positionInt;
         Placed = true;
         GridBuildingSystem.current.TakeArea(area);
-        //transform.GetChild(0).localPosition = Vector3.zero;
         currentSprite.sprite = normal;
 
         GameManager.Instance.DecreasePopulation(pop);
@@ -109,7 +108,6 @@ public class Building : MonoBehaviour
     public void DestroyBuilding()
     {
         GridBuildingSystem.current.ResetArea(area);
-        GridBuildingSystem.current.ClearArea(area);
 
         switch (buildingType)
         {
@@ -125,6 +123,8 @@ public class Building : MonoBehaviour
                 ObjectManager.Instance.RemoveFoodBuilding(gameObject); 
                 break;
         }
+
+        gameObject.SetActive(false);
     }
 
     public void ShowLife()

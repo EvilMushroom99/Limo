@@ -22,10 +22,7 @@ public class GridBuildingSystem : MonoBehaviour
     private void Awake()
     {
         current = this;
-    }
 
-    private void Start()
-    {
         string tilePath = @"TileMap/BuildingZone/";
 
         tileBases.Add(TileType.Empty, null);
@@ -84,7 +81,6 @@ public class GridBuildingSystem : MonoBehaviour
         FollowBuilding();
     }
 
-
     public void ClearArea(BoundsInt area)
     {
         TileBase[] toClear = new TileBase[area.size.x * area.size.y * area.size.z];
@@ -136,7 +132,6 @@ public class GridBuildingSystem : MonoBehaviour
         {
             if (b != tileBases[TileType.White])
             {
-                Debug.Log("Cannot place here.");
                 return false;
             }
         }
