@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
@@ -21,6 +22,24 @@ public class MenuController : MonoBehaviour
     public void PressButton(string state)
     {
         anim.Play(state);
+        Pressed = true;
+
+        switch (state)
+        {
+            case "Menu1P":
+                SceneManager.LoadScene("Gameplay", LoadSceneMode.Single);
+                break;
+            case "Menu2P":
+                break;
+            case "Menu3P":
+                break;
+            case "Menu4P":
+                break;
+        }
+    }
+
+    public void Unpressed()
+    {
         Pressed = true;
     }
 }

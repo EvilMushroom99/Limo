@@ -4,6 +4,14 @@ public class Arrow : MonoBehaviour
 {
     private int damage;
     private float deathTime;
+    [SerializeField] private GameObject area;
+    public enum ArrowType
+    {
+        OneTarget,
+        MultipleTarget
+    }
+
+    public ArrowType arrowType;
 
     private void Start()
     {
@@ -27,6 +35,11 @@ public class Arrow : MonoBehaviour
     public int MakeDamage()
     {
         return damage;
+    }
+
+    public void Expand()
+    {
+        Instantiate(area, transform.position, Quaternion.identity);
     }
 
     public void DestroyArrow()

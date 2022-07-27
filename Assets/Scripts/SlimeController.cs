@@ -1,6 +1,4 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class SlimeController : MonoBehaviour
 {
@@ -14,21 +12,43 @@ public class SlimeController : MonoBehaviour
 
     private Animator anim;
     private Rigidbody2D rb;
+    private SpriteRenderer render;
 
     private bool targetFound;
     private bool attacking;
+
+    private bool hit;
+    private float hitTime;
+    [SerializeField] private Material baseMaterial;
+    [SerializeField] private Material hitMaterial;
+
+
     private GameObject currentTarget;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        render = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
         if (appearTime <= 0f)
         {
+            if (hit)
+            {
+                hitTime -= Time.deltaTime;
+                if (hitTime <= 0f)
+                {
+                    hit = false;
+                }
+            }
+            else
+            {
+                hitTime = 0.25f;
+            }
+
             if (!targetFound)
             {
                 currentTarget = ObjectManager.Instance.GetClosestBuilding(transform.position);
@@ -42,7 +62,7 @@ public class SlimeController : MonoBehaviour
                 }
 
             }
-            else if (Vector2.Distance(transform.position, currentTarget.transform.position) < 0.35f)
+            else if (Vector2.Distance(transform.position, currentTarget.transform.position) < 0.5f)
             {
                 if (!attacking)
                 {
@@ -106,6 +126,15 @@ public class SlimeController : MonoBehaviour
             {
                 anim.Play("idle");
             }
+
+            if (hit)
+            {
+                render.material = hitMaterial;
+            }
+            else
+            {
+                render.material = baseMaterial;
+            }
         }
     }
 
@@ -148,11 +177,38 @@ public class SlimeController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name.StartsWith("Arrow"))
+        string tag = collision.gameObject.tag;
+
+        switch (tag)
         {
-            Arrow arrow = collision.GetComponent<Arrow>();
-            TakeDamage(arrow.MakeDamage());
-            arrow.DestroyArrow();
+            case "Proyectile":
+                Arrow arrow = collision.GetComponent<Arrow>();
+
+                if (arrow.arrowType == Arrow.ArrowType.MultipleTarget)
+                {
+                    arrow.Expand();
+                    arrow.DestroyArrow();
+                }
+                else
+                {
+                    TakeDamage(arrow.MakeDamage());
+                    hit = true;
+                    hitTime = 0.25f;
+                    arrow.DestroyArrow();
+                }
+                break;
+
+            case "Bomb":
+                FireBallBomb bomb = collision.GetComponent<FireBallBomb>();
+                TakeDamage(bomb.MakeDamage());
+                hit = true;
+                hitTime = 0.25f;
+                break;
+
+            case "Trap":
+                SpikeTrapActive trap = collision.GetComponent<SpikeTrapActive>();
+                TakeDamage(trap.MakeDamage());
+                break;
         }
     }
 }

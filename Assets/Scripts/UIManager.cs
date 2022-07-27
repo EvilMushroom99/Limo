@@ -18,6 +18,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    //Info
+    [SerializeField] private Text slimesLeft;
+
     //Resources
     [SerializeField] private Text population;
     [SerializeField] private Text wood;
@@ -25,7 +28,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text wave;
 
     //Buildings UIs
-    [SerializeField] private GameObject inventoryG;
     [SerializeField] private GameObject inventory1;
     [SerializeField] private GameObject inventory2;
     [SerializeField] private GameObject inventory3;
@@ -36,6 +38,14 @@ public class UIManager : MonoBehaviour
     //Building List To Place
     [SerializeField] private GameObject[] buildings;
 
+    //Building Info
+    [SerializeField] private Text buildingName;
+    [SerializeField] private Text buildingResource1;
+    [SerializeField] private Text buildingResource2;
+    [SerializeField] private GameObject buildingWood;
+    [SerializeField] private GameObject buildingFood;
+    [SerializeField] private GameObject buildingPop;
+    
     private void Update()
     {
         if (!GameManager.Instance.warTime)
@@ -49,6 +59,10 @@ public class UIManager : MonoBehaviour
                 buttons[0].SetActive(false);
             }
         }
+        else
+        {
+            slimesLeft.text = GameManager.Instance.totalSlimes.ToString();
+        }
     }
 
     public void SetAmounts(int pop, int wd, int fd, int wv)
@@ -61,62 +75,73 @@ public class UIManager : MonoBehaviour
 
     public void ShowResourcesBuildings()
     {
-        if (!inventory1.activeInHierarchy)
-        {
-            inventory1.SetActive(true);
-            inventory2.SetActive(false);
-            inventory3.SetActive(false);
-            inventoryG.SetActive(false);
-        }
-        else
-        {
-            inventory1.SetActive(false);
-            inventoryG.SetActive(true);
-        }
-    }
-
-    public void ShowTowersBuildings()
-    {
-        if (!inventory2.activeInHierarchy)
-        {
-            inventory2.SetActive(true);
-            inventory1.SetActive(false);
-            inventory3.SetActive(false);
-            inventoryG.SetActive(false);
-        }
-        else
-        {
-            inventory2.SetActive(false);
-            inventoryG.SetActive(true);
-        }
+        buildingName.text = "";
+        inventory1.SetActive(true);
+        inventory2.SetActive(false);
+        inventory3.SetActive(false);
+        buildingWood.SetActive(false);
+        buildingFood.SetActive(false);
+        buildingPop.SetActive(false);
+        buildingResource1.gameObject.SetActive(false);
+        buildingResource2.gameObject.SetActive(false);
     }
 
     public void ShowDefenseBuildings()
     {
-        if (!inventory3.activeInHierarchy)
-        {
-            inventory3.SetActive(true);
-            inventory1.SetActive(false);
-            inventory2.SetActive(false);
-            inventoryG.SetActive(false);
-        }
-        else
-        {
-            inventory3.SetActive(false);
-            inventoryG.SetActive(true);
-        }
+        buildingName.text = "";
+        inventory1.SetActive(false);
+        inventory2.SetActive(true);
+        inventory3.SetActive(false);
+        buildingWood.SetActive(false);
+        buildingFood.SetActive(false);
+        buildingPop.SetActive(false);
+        buildingResource1.gameObject.SetActive(false);
+        buildingResource2.gameObject.SetActive(false);
     }
 
-    public void BackToInventoryG()
+    public void ShowTowersBuildings()
     {
+        buildingName.text = "";
         inventory1.SetActive(false);
         inventory2.SetActive(false);
-        inventory3.SetActive(false);
-        inventoryG.SetActive(true);
+        inventory3.SetActive(true);
+        buildingWood.SetActive(false);
+        buildingFood.SetActive(false);
+        buildingPop.SetActive(false);
+        buildingResource1.gameObject.SetActive(false);
+        buildingResource2.gameObject.SetActive(false);
     }
 
     public void GetBuilding(int building)
     {
+        buildingName.text = buildings[building].name;
+        buildingResource1.gameObject.SetActive(true);
+        buildingResource2.gameObject.SetActive(true);
+
+        Building currentBuilding = buildings[building].GetComponent<Building>();
+        buildingResource1.text = currentBuilding.GetWood().ToString();
+        buildingWood.SetActive(true);
+
+        if (currentBuilding.GetFood() != 0)
+        {
+            buildingResource2.text = currentBuilding.GetFood().ToString();
+            buildingFood.SetActive(true);
+            buildingPop.SetActive(false);
+        }
+        else if (currentBuilding.GetPop() != 0)
+        {
+            buildingResource2.text = currentBuilding.GetPop().ToString();
+            buildingPop.SetActive(true);
+            buildingFood.SetActive(false);
+        }
+        else
+        {
+            buildingFood.SetActive(false);
+            buildingPop.SetActive(false);
+            buildingResource2.text = "";
+        }
+
+
         if (GameManager.Instance.CheckResources(building))
         {
             GridBuildingSystem.current.InitializeWithBuilding(buildings[building]);
@@ -125,10 +150,20 @@ public class UIManager : MonoBehaviour
 
     public void EnableButtons()
     {
+        buildingName.text = "";
+        buildingResource1.text = "";
+        buildingResource2.text = "";
+
+        inventory1.SetActive(true);
+
         for (int i = 0; i < buttons.Length; i++)
         {
             buttons[i].SetActive(true);
         }
+
+        buildingWood.SetActive(false);
+        buildingFood.SetActive(false);
+        buildingPop.SetActive(false);
     }
 
     public void DisableButtons()
@@ -142,5 +177,6 @@ public class UIManager : MonoBehaviour
         inventory2.SetActive(false);
         inventory3.SetActive(false);
     }
+
 
 }

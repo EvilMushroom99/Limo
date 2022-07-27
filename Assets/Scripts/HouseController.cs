@@ -12,7 +12,7 @@ public class HouseController : MonoBehaviour
     void Start()
     {
         food = 0;
-        totalpop = 5;
+        totalpop = 1;
         popText.text = "+" + food;
     }
 

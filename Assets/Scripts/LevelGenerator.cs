@@ -16,7 +16,7 @@ public class LevelGenerator : MonoBehaviour
 
     private void PlaceTrees()
     {
-        int totalTrees = Random.Range(100, 800);
+        int totalTrees = Random.Range(1000, 2001);
 
         int lastTree = 0;
         Vector2 lastPos = Vector2.zero;
@@ -27,14 +27,14 @@ public class LevelGenerator : MonoBehaviour
 
             int randomTree = Random.Range(0, 8);
             
-            int repeatTree = Random.Range(0, 5);
+            int repeatTree = Random.Range(0, 10);
 
-            if (repeatTree <= 3 && i != 0)
+            if (repeatTree <= 8 && i != 0)
             {
                 int x = Random.Range(-1, 2);
                 int y = Random.Range(-1, 2);
 
-                Instantiate(trees[lastTree]).transform.position = lastPos + new Vector2(x * 0.25f, y * 0.25f);
+                Instantiate(trees[lastTree]).transform.position = lastPos + new Vector2(x * 0.5f, y * 0.5f);
 
                 lastPos += new Vector2(x * 0.25f, y * 0.25f);
             }

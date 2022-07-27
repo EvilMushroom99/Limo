@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -33,9 +32,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         wave = 0;
-        population = 100;
-        wood = 200;
-        food = 100;
+        population = 20;
+        wood = 20;
+        food = 20;
 
         UIManager.Instance.SetAmounts(population, wood, food, wave);
     }
@@ -57,7 +56,6 @@ public class GameManager : MonoBehaviour
 
     public void IncreasePopulation(int amount)
     {
-        Debug.Log("Increasing Population" + " Amount = " + amount);
         population += amount;
         UIManager.Instance.SetAmounts(population, wood, food, wave);
     }
@@ -115,6 +113,10 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseWave()
     {
+        if (wave == 10)
+        {
+            return;
+        }
         UIManager.Instance.DisableButtons();
         wave += 1;
         warTime = true;
@@ -158,8 +160,14 @@ public class GameManager : MonoBehaviour
                     return true;
                 }
                 break;
-            case 5:
+            case 5://Palisade
                 if (wood >= 1)
+                {
+                    return true;
+                }
+                break;
+            case 6://SpikeTrap
+                if (wood >= 3)
                 {
                     return true;
                 }
@@ -175,34 +183,63 @@ public class GameManager : MonoBehaviour
         switch (wave)
         {
             case 1:
-                SpawnSlimes(30, 2f);
+                SpawnSlimes(3, 2f, "Common");
                 break;
 
             case 2:
-                SpawnSlimes(1, 2f);
+                SpawnSlimes(7, 2f, "Common");
                 break;
 
             case 3:
-                SpawnSlimes(1, 2f);
+                SpawnSlimes(3, 2f, "Common");
+                SpawnSlimes(2, 2f, "Archer");
                 break;
 
             case 4:
-                SpawnSlimes(1, 2f);
+                SpawnSlimes(5, 2f, "Common");
+                SpawnSlimes(5, 2f, "Archer");
                 break;
 
             case 5:
-                SpawnSlimes(1, 2f);
+                SpawnSlimes(8, 2f, "Common");
+                SpawnSlimes(2, 2f, "Archer");
+                SpawnSlimes(3, 2f, "Bomb");
+                break;
+            case 6:
+                SpawnSlimes(12, 2f, "Common");
+                SpawnSlimes(7, 2f, "Archer");
+                SpawnSlimes(6, 2f, "Bomb");
+                break;
+            case 7:
+                SpawnSlimes(20, 2f, "Common");
+                SpawnSlimes(10, 2f, "Archer");
+                SpawnSlimes(10, 2f, "Bomb");
+                break;
+            case 8:
+                SpawnSlimes(30, 2f, "Common");
+                SpawnSlimes(15, 2f, "Archer");
+                SpawnSlimes(10, 2f, "Bomb");
+                break;
+            case 9:
+                SpawnSlimes(40, 1f, "Common");
+                SpawnSlimes(15, 2f, "Archer");
+                SpawnSlimes(20, 1.5f, "Bomb");
+                break;
+            case 10:
+                SpawnSlimes(50, 1f, "Common");
+                SpawnSlimes(30, 2f, "Archer");
+                SpawnSlimes(25, 1.5f, "Bomb");
                 break;
         }
     }
 
-    IEnumerator Spawn(int slimeCount, float time)
+    IEnumerator Spawn(int slimeCount, float time, string slimeType)
     {
         spawningTime = true;
         for (int i = 0; i < slimeCount; i++)
         {
-            GameObject cslim = Instantiate(Resources.Load("Slimes/Common") as GameObject);
-            int index = Random.Range(0, 4);
+            GameObject cslim = Instantiate(Resources.Load($"Slimes/{slimeType}Slime") as GameObject);
+            int index = Random.Range(0, 12);
             cslim.transform.position = spawns[index].transform.position;
             totalSlimes += 1;
             yield return new WaitForSeconds(time);
@@ -210,8 +247,8 @@ public class GameManager : MonoBehaviour
         spawningTime = false;
     } 
 
-    private void SpawnSlimes(int slimeCount, float time)
+    private void SpawnSlimes(int slimeCount, float time, string slimeType)
     {
-        StartCoroutine(Spawn(slimeCount, time));
+        StartCoroutine(Spawn(slimeCount, time, slimeType));
     }
 }

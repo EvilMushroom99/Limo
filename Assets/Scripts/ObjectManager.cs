@@ -33,12 +33,29 @@ public class ObjectManager : MonoBehaviour
 
             if (Buildings[i].activeInHierarchy)
             {
-                float currentDistance = Vector2.Distance(Buildings[i].transform.position, slimePosition);
 
-                if (currentDistance < lastDistance)
+                if (Buildings[i].CompareTag("Trap"))
                 {
-                    lastDistance = currentDistance;
-                    closest = Buildings[i];
+                    if (Buildings[i].transform.GetChild(0).gameObject.activeInHierarchy)
+                    {
+                        float currentDistance = Vector2.Distance(Buildings[i].transform.position, slimePosition);
+
+                        if (currentDistance < lastDistance)
+                        {
+                            lastDistance = currentDistance;
+                            closest = Buildings[i];
+                        }
+                    }
+                }
+                else
+                {
+                    float currentDistance = Vector2.Distance(Buildings[i].transform.position, slimePosition);
+
+                    if (currentDistance < lastDistance)
+                    {
+                        lastDistance = currentDistance;
+                        closest = Buildings[i];
+                    }
                 }
             }
         }

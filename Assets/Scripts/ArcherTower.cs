@@ -10,7 +10,7 @@ public class ArcherTower : MonoBehaviour
 
     private GameObject target;
 
-    [SerializeField] private float timeColdDown;
+    private float timeColdDown;
 
     private List<GameObject> targets = new List<GameObject>();
 

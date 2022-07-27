@@ -10,17 +10,25 @@ public class Building : MonoBehaviour
     [SerializeField] private int wood;
     [SerializeField] private int food;
     [SerializeField] private int life;
+    private int totalLife;
 
     [SerializeField] private Sprite normal;
     [SerializeField] private Sprite green;
     [SerializeField] private Sprite red;
     [SerializeField] private SpriteRenderer currentSprite;
+    [SerializeField] private Material baseMaterial;
+    [SerializeField] private Material hitMaterial;
+    private bool hit;
+    private float hitTime = 0.25f;
 
     [SerializeField] private Slider slider;
+
+    [SerializeField] private GameObject[] fires;
 
     private enum BuildingType
     {
         Tower,
+        Trap,
         House,
         Sawmill,
         Wheat,
@@ -28,6 +36,27 @@ public class Building : MonoBehaviour
     }
 
     [SerializeField] private BuildingType buildingType;
+
+    private void Start()
+    {
+        totalLife = life;
+    }
+
+    private void Update()
+    {
+        if (hit)
+        {
+            hitTime -= Time.deltaTime;
+            if (hitTime <= 0f)
+            {
+                hit = false;
+            }
+        }
+        else
+        {
+            hitTime = 0.25f;
+        }
+    }
 
     private void LateUpdate()
     {
@@ -42,15 +71,39 @@ public class Building : MonoBehaviour
                 currentSprite.sprite = red;
             }
         }
+        else
+        {
+            if (hit)
+            {
+                currentSprite.material = hitMaterial;
+            }
+            else
+            {
+                currentSprite.material = baseMaterial;
+            }
+        }
     }
 
     public void TakeDamage(int damage)
     {
         life -= damage;
+        hit = true;
+        hitTime = 0.25f;
 
         if (life <= 0)
         {
             DestroyBuilding();
+        }
+        if (life <= totalLife / 1.5f)
+        {
+            fires[0].SetActive(true);
+        }
+        if (life <= totalLife / 3f)
+        {
+            for(int i = 0; i < fires.Length; i++)
+            {
+                fires[i].SetActive(true);
+            }
         }
 
         slider.value = life;
@@ -137,5 +190,20 @@ public class Building : MonoBehaviour
         {
             slider.gameObject.SetActive(false);
         }
+    }
+
+    public int GetFood()
+    {
+        return food;
+    }
+
+    public int GetWood()
+    {
+        return wood;
+    }
+
+    public int GetPop()
+    {
+        return pop;
     }
 }
