@@ -41,17 +41,12 @@ public class SawmillController : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (!GameManager.Instance.warTime)
-        {
-            canvas.SetActive(true);
-        }
+        canvas.SetActive(true);
     }
+
 
     private void OnMouseExit()
     {
-        if (!GameManager.Instance.warTime)
-        {
-            canvas.SetActive(false);
-        }
+        canvas.SetActive(false);
     }
 }

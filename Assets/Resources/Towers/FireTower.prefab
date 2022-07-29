@@ -82,10 +82,10 @@ MonoBehaviour:
   area:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 1, y: 1, z: 1}
-  pop: 10
+  pop: 5
   wood: 5
   food: 0
-  life: 100
+  life: 150
   normal: {fileID: 21300000, guid: 47510cd27b2d9d948a100d3cd796fc10, type: 3}
   green: {fileID: -1221713499267865881, guid: 488cf46ef5be8d84896ea5f1228e7ba2, type: 3}
   red: {fileID: -7182384963746335023, guid: 488cf46ef5be8d84896ea5f1228e7ba2, type: 3}
@@ -207,7 +207,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 4}
+  m_Size: {x: 5, y: 5}
   m_EdgeRadius: 0
 --- !u!50 &951836592952934957
 Rigidbody2D:
@@ -261,8 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d19cae76a5b15b4781a653d37645908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 20
-  attackSpeed: 3
+  attack: 50
+  attackSpeed: 2
   arrowPosition: {fileID: 5746187730846401706}
   Arrow: {fileID: 4354287381247705591, guid: f1d9fc75aaf308245a9e77abe853941a, type: 3}
 --- !u!1001 &3278476313259569487

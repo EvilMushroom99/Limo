@@ -185,7 +185,7 @@ MonoBehaviour:
   pop: 0
   wood: 1
   food: 0
-  life: 250
+  life: 300
   normal: {fileID: 5743477113541262960, guid: 5e9a19a0d96c9a64184b438e85830702, type: 3}
   green: {fileID: -321622831631304546, guid: 5e9a19a0d96c9a64184b438e85830702, type: 3}
   red: {fileID: 6162268152000500003, guid: 5e9a19a0d96c9a64184b438e85830702, type: 3}

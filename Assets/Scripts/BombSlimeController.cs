@@ -156,6 +156,7 @@ public class BombSlimeController : MonoBehaviour
         life -= damage;
         if (life <= 0)
         {
+            AudioManager.Instance.PlaySlimeDie();
             GameManager.Instance.totalSlimes -= 1;
             GameObject particle = Instantiate(deathParticle);
             particle.transform.position = transform.position;
@@ -170,7 +171,7 @@ public class BombSlimeController : MonoBehaviour
             if (currentTarget.activeInHierarchy)
             {
                 Instantiate(bomb, transform.position, Quaternion.identity);
-                TakeDamage(life);
+                TakeDamage(1000);
             }
         }
     }
@@ -192,6 +193,7 @@ public class BombSlimeController : MonoBehaviour
                 else
                 {
                     TakeDamage(arrow.MakeDamage());
+                    AudioManager.Instance.PlaySlimeHit();
                     hit = true;
                     hitTime = 0.25f;
                     arrow.DestroyArrow();
@@ -201,6 +203,7 @@ public class BombSlimeController : MonoBehaviour
             case "Bomb":
                 FireBallBomb bomb = collision.GetComponent<FireBallBomb>();
                 TakeDamage(bomb.MakeDamage());
+                AudioManager.Instance.PlaySlimeHit();
                 hit = true;
                 hitTime = 0.25f;
                 break;
@@ -208,7 +211,19 @@ public class BombSlimeController : MonoBehaviour
             case "Trap":
                 SpikeTrapActive trap = collision.GetComponent<SpikeTrapActive>();
                 TakeDamage(trap.MakeDamage());
+                AudioManager.Instance.PlaySlimeHit();
                 break;
         }
+    }
+
+    //Sounds
+    public void JumpSound()
+    {
+        AudioManager.Instance.PlaySlimeJump();
+    }
+
+    public void AttackSound()
+    {
+        AudioManager.Instance.PlayBombSlimeAttack();
     }
 }

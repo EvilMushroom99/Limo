@@ -27,14 +27,14 @@ public class GameManager : MonoBehaviour
     private int population;
     private int wood;
     private int food;
-    private int wave;
+    public int wave;
 
     private void Start()
     {
-        wave = 0;
-        population = 20;
-        wood = 20;
-        food = 20;
+        wave = 9;
+        population = 500;
+        wood = 500;
+        food = 500;
 
         UIManager.Instance.SetAmounts(population, wood, food, wave);
     }
@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     {
         if(!spawningTime && totalSlimes <= 0 && warTime)
         {
+            AudioManager.Instance.PlayWaveCompleted();
             warTime = false;
             totalSlimes = 0;
             UIManager.Instance.EnableButtons();
@@ -124,6 +125,8 @@ public class GameManager : MonoBehaviour
         ObjectManager.Instance.ShowLifeOfBuildings();
         //GridBuildingSystem.current.ShowBuildingZone();
         WaveConfig();
+        UIManager.Instance.WaveTarget();
+        AudioManager.Instance.PlayWarDrums();
     }
 
     public bool CheckResources(int building)

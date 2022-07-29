@@ -53,6 +53,8 @@ public class FireTower : MonoBehaviour
 
     private void SetArrow()
     {
+        AudioManager.Instance.PlayFireTowerAttack();
+
         GameObject arrow = Instantiate(Arrow, arrowPosition.position, Quaternion.identity);
 
         Vector3 direction = target.transform.position - arrow.transform.localPosition;

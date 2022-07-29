@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3792367619319797621}
   - component: {fileID: 2504519829205486836}
   - component: {fileID: 8078444252106899893}
-  - component: {fileID: 4944078017899888482}
   - component: {fileID: 7689291452109990647}
   m_Layer: 0
   m_Name: Sawmill1
@@ -100,7 +99,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0023846626, y: 0.09572169}
+  m_Offset: {x: 0.0023846626, y: 0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.25}
@@ -111,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.508042, y: 0.2623512}
+  m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
 --- !u!50 &8078444252106899893
 Rigidbody2D:
@@ -134,22 +133,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!58 &4944078017899888482
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2905139235161815441}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.3937502}
-  serializedVersion: 2
-  m_Radius: 0.9
 --- !u!114 &7689291452109990647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +202,7 @@ MonoBehaviour:
   pop: 5
   wood: 5
   food: 0
-  life: 100
+  life: 150
   normal: {fileID: -1327783827800691072, guid: 3e044a9cac637584988869257a77e38e, type: 3}
   green: {fileID: -7343887744995045752, guid: 3e044a9cac637584988869257a77e38e, type: 3}
   red: {fileID: -2639815033004070117, guid: 3e044a9cac637584988869257a77e38e, type: 3}
@@ -625,6 +608,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3230810091183916625, guid: da3fa2c8b6572d6459a6cd94f8b2d204, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230810091183916625, guid: da3fa2c8b6572d6459a6cd94f8b2d204, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3371144863574354646, guid: da3fa2c8b6572d6459a6cd94f8b2d204, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -695,7 +686,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3371144863574354646, guid: da3fa2c8b6572d6459a6cd94f8b2d204, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 3371144863574354646, guid: da3fa2c8b6572d6459a6cd94f8b2d204, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

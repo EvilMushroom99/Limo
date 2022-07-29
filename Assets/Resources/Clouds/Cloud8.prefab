@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7410650136333524723}
   - component: {fileID: 577988047161617304}
   - component: {fileID: 9192764306386532520}
+  - component: {fileID: -7826162097798999711}
   m_Layer: 0
   m_Name: Cloud8
   m_TagString: Untagged
@@ -54,7 +55,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6
 --- !u!114 &9192764306386532520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,9 +68,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72676114885c23a409af09f5c17dfe66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 300
-  velocity: 1
-  direction: {x: 0, y: 0}
+--- !u!61 &-7826162097798999711
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7410650136333524716}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &7410650136603610207
 GameObject:
   m_ObjectHideFlags: 0

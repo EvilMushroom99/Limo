@@ -20,6 +20,7 @@ public class SpikeTrap : MonoBehaviour
         }
         else
         {
+            AudioManager.Instance.PlaySpikeTowerActivate();
             hitbox.SetActive(true);
             trap.SetActive(true);
         }

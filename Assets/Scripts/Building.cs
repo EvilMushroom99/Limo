@@ -18,6 +18,7 @@ public class Building : MonoBehaviour
     [SerializeField] private SpriteRenderer currentSprite;
     [SerializeField] private Material baseMaterial;
     [SerializeField] private Material hitMaterial;
+    [SerializeField] private GameObject hitExplotion;
     private bool hit;
     private float hitTime = 0.25f;
 
@@ -92,6 +93,7 @@ public class Building : MonoBehaviour
 
         if (life <= 0)
         {
+            AudioManager.Instance.PlayBuildingDestroyed();
             DestroyBuilding();
         }
         if (life <= totalLife / 1.5f)
@@ -106,6 +108,7 @@ public class Building : MonoBehaviour
             }
         }
 
+        AudioManager.Instance.PlayBuildingHit();
         slider.value = life;
     }
 
@@ -120,11 +123,14 @@ public class Building : MonoBehaviour
             return true;
         }
 
+        AudioManager.Instance.PlayMenuSelectionBuildingDeny();
         return false;
     }
 
     public void Place()
     {
+        AudioManager.Instance.PlayBuildingPlaced();
+
         Vector3Int positionInt = GridBuildingSystem.current.gridLayout.LocalToCell(transform.position);
         BoundsInt areaTemp = area;
 

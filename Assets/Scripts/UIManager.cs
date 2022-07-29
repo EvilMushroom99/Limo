@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class UIManager : MonoBehaviour
 {
@@ -20,6 +22,10 @@ public class UIManager : MonoBehaviour
 
     //Info
     [SerializeField] private Text slimesLeft;
+    [SerializeField] private GameObject waveAnim;
+
+    //Control
+    [SerializeField] Animator fade;
 
     //Resources
     [SerializeField] private Text population;
@@ -75,6 +81,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowResourcesBuildings()
     {
+        AudioManager.Instance.PlayMenuSelectionBuilding();
         buildingName.text = "";
         inventory1.SetActive(true);
         inventory2.SetActive(false);
@@ -88,6 +95,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowDefenseBuildings()
     {
+        AudioManager.Instance.PlayMenuSelectionBuilding();
         buildingName.text = "";
         inventory1.SetActive(false);
         inventory2.SetActive(true);
@@ -101,6 +109,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowTowersBuildings()
     {
+        AudioManager.Instance.PlayMenuSelectionBuilding();
         buildingName.text = "";
         inventory1.SetActive(false);
         inventory2.SetActive(false);
@@ -144,7 +153,12 @@ public class UIManager : MonoBehaviour
 
         if (GameManager.Instance.CheckResources(building))
         {
+            AudioManager.Instance.PlayMenuSelection();
             GridBuildingSystem.current.InitializeWithBuilding(buildings[building]);
+        }
+        else
+        {
+            AudioManager.Instance.PlayMenuSelectionBuildingDeny();
         }
     }
 
@@ -178,5 +192,60 @@ public class UIManager : MonoBehaviour
         inventory3.SetActive(false);
     }
 
+    public void WaveTarget()
+    {
+        StartCoroutine(WaveAnim());
+    }
 
+    public void PauseGame()
+    {
+        AudioManager.Instance.PlayMenuSelectionBuilding();
+        if (Time.timeScale != 0)
+        {
+            Time.timeScale = 0;
+        }
+    }
+
+    public void NormalSpeed()
+    {
+        if (Time.timeScale != 1)
+        {
+            Time.timeScale = 1;
+        }
+        AudioManager.Instance.PlayMenuSelectionBuilding();
+    }
+
+    public void Speedx2()
+    {
+        AudioManager.Instance.PlayMenuSelectionBuilding();
+        if (Time.timeScale != 2)
+        {
+            Time.timeScale = 2;
+        }
+    }
+
+    public void ReturnToMenu()
+    {
+        if (Time.timeScale != 1)
+        {
+            Time.timeScale = 1;
+        }
+        AudioManager.Instance.PlayMenuSelectionBuilding();
+        StartCoroutine(Transition());
+    }
+
+    IEnumerator WaveAnim()
+    {
+        waveAnim.SetActive(true);
+        waveAnim.GetComponent<Text>().text = "Wave " + GameManager.Instance.wave.ToString();
+        yield return new WaitForSeconds(5.2f);
+        waveAnim.SetActive(false);
+    }
+
+    IEnumerator Transition()
+    {
+        fade.Play("Close");
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
 }

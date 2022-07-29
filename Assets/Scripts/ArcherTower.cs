@@ -31,9 +31,7 @@ public class ArcherTower : MonoBehaviour
         }
         else if(targets.Count > 0)
         {
-            //Debug.Log("Changing the target" + "  " + targets.Count);
             target = targets[0];
-            //Debug.Log("Target Changed" + "  " + targets.Count);
         }
     }
 
@@ -41,9 +39,7 @@ public class ArcherTower : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            //Debug.Log("Adding a target" + "  " + targets.Count);
             targets.Add(collision.gameObject);
-            //Debug.Log("Target Added" + "  " + targets.Count);
         }
     }
 
@@ -51,14 +47,14 @@ public class ArcherTower : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            //Debug.Log("Removing a target" + "  " + targets.Count);
             targets.Remove(collision.gameObject);
-            //Debug.Log("Target Removed" + "  " + targets.Count);
         }
     }
 
     private void SetArrow()
     {
+        AudioManager.Instance.PlayArcherTowerAttack();
+
         GameObject arrow = Instantiate(Arrow, arrowPosition.position, Quaternion.identity);
 
         Vector3 direction = target.transform.position - arrow.transform.localPosition;
