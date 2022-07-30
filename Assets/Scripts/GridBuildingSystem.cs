@@ -25,10 +25,13 @@ public class GridBuildingSystem : MonoBehaviour
 
         string tilePath = @"TileMap/BuildingZone/";
 
-        tileBases.Add(TileType.Empty, null);
-        tileBases.Add(TileType.White, Resources.Load<TileBase>(tilePath + "White"));
-        tileBases.Add(TileType.Green, Resources.Load<TileBase>(tilePath + "Green"));
-        tileBases.Add(TileType.Red, Resources.Load<TileBase>(tilePath + "Red"));
+        if (tileBases.Count == 0)
+        {
+            tileBases.Add(TileType.Empty, null);
+            tileBases.Add(TileType.White, Resources.Load<TileBase>(tilePath + "White"));
+            tileBases.Add(TileType.Green, Resources.Load<TileBase>(tilePath + "Green"));
+            tileBases.Add(TileType.Red, Resources.Load<TileBase>(tilePath + "Red"));
+        }
     }
 
     void Update()

@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
     //Info
     [SerializeField] private Text slimesLeft;
     [SerializeField] private GameObject waveAnim;
+    [SerializeField] private GameObject info;
 
     //Control
     [SerializeField] Animator fade;
@@ -91,6 +92,7 @@ public class UIManager : MonoBehaviour
         buildingPop.SetActive(false);
         buildingResource1.gameObject.SetActive(false);
         buildingResource2.gameObject.SetActive(false);
+        info.SetActive(false);
     }
 
     public void ShowDefenseBuildings()
@@ -105,6 +107,7 @@ public class UIManager : MonoBehaviour
         buildingPop.SetActive(false);
         buildingResource1.gameObject.SetActive(false);
         buildingResource2.gameObject.SetActive(false);
+        info.SetActive(false);
     }
 
     public void ShowTowersBuildings()
@@ -119,6 +122,7 @@ public class UIManager : MonoBehaviour
         buildingPop.SetActive(false);
         buildingResource1.gameObject.SetActive(false);
         buildingResource2.gameObject.SetActive(false);
+        info.SetActive(false);
     }
 
     public void GetBuilding(int building)
@@ -162,6 +166,18 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void GetInfo(string title, string description)
+    {
+        info.transform.GetChild(0).GetComponent<Text>().text = title;
+        info.transform.GetChild(1).GetComponent<Text>().text = description;
+        info.SetActive(true);
+    }
+
+    public void DisableInfo()
+    {
+        info.SetActive(false);
+    }
+
     public void EnableButtons()
     {
         buildingName.text = "";
@@ -192,9 +208,9 @@ public class UIManager : MonoBehaviour
         inventory3.SetActive(false);
     }
 
-    public void WaveTarget()
+    public void WaveTarget(string description)
     {
-        StartCoroutine(WaveAnim());
+        StartCoroutine(WaveAnim(description));
     }
 
     public void PauseGame()
@@ -234,10 +250,10 @@ public class UIManager : MonoBehaviour
         StartCoroutine(Transition());
     }
 
-    IEnumerator WaveAnim()
+    IEnumerator WaveAnim(string description)
     {
         waveAnim.SetActive(true);
-        waveAnim.GetComponent<Text>().text = "Wave " + GameManager.Instance.wave.ToString();
+        waveAnim.GetComponent<Text>().text = "Wave " + description;
         yield return new WaitForSeconds(5.2f);
         waveAnim.SetActive(false);
     }

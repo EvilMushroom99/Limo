@@ -12,6 +12,7 @@ public class Building : MonoBehaviour
     [SerializeField] private int life;
     private int totalLife;
 
+    [SerializeField] private GameObject buildingRange;
     [SerializeField] private Sprite normal;
     [SerializeField] private Sprite green;
     [SerializeField] private Sprite red;
@@ -19,6 +20,7 @@ public class Building : MonoBehaviour
     [SerializeField] private Material baseMaterial;
     [SerializeField] private Material hitMaterial;
     [SerializeField] private GameObject hitExplotion;
+    [SerializeField] private GameObject hitbox;
     private bool hit;
     private float hitTime = 0.25f;
 
@@ -57,6 +59,15 @@ public class Building : MonoBehaviour
         {
             hitTime = 0.25f;
         }
+
+        if (!GameManager.Instance.warTime)
+        {
+            hitbox.SetActive(false);
+        }
+        else if (!hitbox.activeInHierarchy)
+        {
+            hitbox.SetActive(true);
+        }
     }
 
     private void LateUpdate()
@@ -88,6 +99,8 @@ public class Building : MonoBehaviour
     public void TakeDamage(int damage)
     {
         life -= damage;
+
+        AudioManager.Instance.PlayBuildingHit();
         hit = true;
         hitTime = 0.25f;
 
@@ -108,7 +121,6 @@ public class Building : MonoBehaviour
             }
         }
 
-        AudioManager.Instance.PlayBuildingHit();
         slider.value = life;
     }
 
@@ -129,6 +141,11 @@ public class Building : MonoBehaviour
 
     public void Place()
     {
+        if (buildingRange)
+        {
+            buildingRange.SetActive(false);
+        }
+
         AudioManager.Instance.PlayBuildingPlaced();
 
         Vector3Int positionInt = GridBuildingSystem.current.gridLayout.LocalToCell(transform.position);

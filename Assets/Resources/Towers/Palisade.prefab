@@ -183,15 +183,18 @@ MonoBehaviour:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 1, y: 1, z: 1}
   pop: 0
-  wood: 1
+  wood: 2
   food: 0
   life: 300
+  buildingRange: {fileID: 0}
   normal: {fileID: 5743477113541262960, guid: 5e9a19a0d96c9a64184b438e85830702, type: 3}
   green: {fileID: -321622831631304546, guid: 5e9a19a0d96c9a64184b438e85830702, type: 3}
   red: {fileID: 6162268152000500003, guid: 5e9a19a0d96c9a64184b438e85830702, type: 3}
   currentSprite: {fileID: 7440965047285924025}
   baseMaterial: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   hitMaterial: {fileID: 2100000, guid: cccea25b6fa55604da9c63320433bd4b, type: 3}
+  hitExplotion: {fileID: 0}
+  hitbox: {fileID: 8286833973801109598}
   slider: {fileID: 866339492679036751}
   fires:
   - {fileID: 5197107576357346798}
@@ -266,6 +269,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f39703b0cd1d674ead84a01b8c44be9, type: 3}
+--- !u!1 &8286833973801109598 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6277506575146924782, guid: 6f39703b0cd1d674ead84a01b8c44be9, type: 3}
+  m_PrefabInstance: {fileID: 2602677543140225712}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4380956117411166171 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1788730661358503275, guid: 6f39703b0cd1d674ead84a01b8c44be9, type: 3}

@@ -31,10 +31,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        wave = 9;
-        population = 500;
-        wood = 500;
-        food = 500;
+
+        AudioManager.Instance.PlayGameplayTheme();
+        wave = 0;
+        population = 30;
+        wood = 30;
+        food = 30;
 
         UIManager.Instance.SetAmounts(population, wood, food, wave);
     }
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
         if(!spawningTime && totalSlimes <= 0 && warTime)
         {
             AudioManager.Instance.PlayWaveCompleted();
+            UIManager.Instance.WaveTarget("Completed");
             warTime = false;
             totalSlimes = 0;
             UIManager.Instance.EnableButtons();
@@ -125,7 +128,7 @@ public class GameManager : MonoBehaviour
         ObjectManager.Instance.ShowLifeOfBuildings();
         //GridBuildingSystem.current.ShowBuildingZone();
         WaveConfig();
-        UIManager.Instance.WaveTarget();
+        UIManager.Instance.WaveTarget(wave.ToString());
         AudioManager.Instance.PlayWarDrums();
     }
 
@@ -146,25 +149,25 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case 2://Wheat
-                if (population >= 5 && wood >= 5)
+                if (wood >= 5)
                 {
                     return true;
                 }
                 break;
             case 3://ArcherTower
-                if (population >= 5 && wood >= 5)
+                if (population >= 4 && wood >= 4)
                 {
                     return true;
                 }
                 break;
             case 4://FireTower
-                if (population >= 5 && wood >= 5)
+                if (population >= 7 && wood >= 7)
                 {
                     return true;
                 }
                 break;
             case 5://Palisade
-                if (wood >= 1)
+                if (wood >= 2)
                 {
                     return true;
                 }
@@ -186,52 +189,69 @@ public class GameManager : MonoBehaviour
         switch (wave)
         {
             case 1:
-                SpawnSlimes(3, 2f, "Common");
+                SpawnSlimes(2, 2f, "Common");
                 break;
 
             case 2:
-                SpawnSlimes(7, 2f, "Common");
+                SpawnSlimes(6, 2f, "Common");
                 break;
 
             case 3:
-                SpawnSlimes(3, 2f, "Common");
                 SpawnSlimes(2, 2f, "Archer");
                 break;
 
             case 4:
-                SpawnSlimes(5, 2f, "Common");
-                SpawnSlimes(5, 2f, "Archer");
+                SpawnSlimes(3, 2f, "Common");
+                SpawnSlimes(2, 2f, "Archer");
                 break;
 
             case 5:
-                SpawnSlimes(8, 2f, "Common");
-                SpawnSlimes(2, 2f, "Archer");
-                SpawnSlimes(3, 2f, "Bomb");
+                SpawnSlimes(5, 2f, "Common");
+                SpawnSlimes(3, 2f, "Archer");
                 break;
             case 6:
-                SpawnSlimes(12, 2f, "Common");
-                SpawnSlimes(7, 2f, "Archer");
-                SpawnSlimes(6, 2f, "Bomb");
+                SpawnSlimes(3, 2f, "Common");
+                SpawnSlimes(3, 2f, "Bomb");
                 break;
             case 7:
+                SpawnSlimes(4, 2f, "Common");
+                SpawnSlimes(3, 2f, "Archer");
+                SpawnSlimes(3, 2f, "Bomb");
+                break;
+            case 8:
+                SpawnSlimes(6, 2f, "Common");
+                SpawnSlimes(2, 2f, "Archer");
+                SpawnSlimes(5, 2f, "Bomb");
+                break;
+            case 9:
                 SpawnSlimes(20, 2f, "Common");
+                break;
+            case 10:
+                SpawnSlimes(10, 2f, "Common");
+                SpawnSlimes(5, 2f, "Archer");
+                SpawnSlimes(3, 2f, "Bomb");
+                break;
+            case 11:
+                SpawnSlimes(10, 2f, "Common");
+                break;
+            case 12:
+                SpawnSlimes(10, 2f, "Bomb");
+                SpawnSlimes(5, 2f, "Common");
+                break;
+            case 13:
+                SpawnSlimes(10, 2f, "Common");
                 SpawnSlimes(10, 2f, "Archer");
                 SpawnSlimes(10, 2f, "Bomb");
                 break;
-            case 8:
-                SpawnSlimes(30, 2f, "Common");
-                SpawnSlimes(15, 2f, "Archer");
-                SpawnSlimes(10, 2f, "Bomb");
+            case 14:
+                SpawnSlimes(5, 2f, "Common");
+                SpawnSlimes(5, 2f, "Archer");
+                SpawnSlimes(15, 2f, "Bomb");
                 break;
-            case 9:
-                SpawnSlimes(40, 1f, "Common");
-                SpawnSlimes(15, 2f, "Archer");
-                SpawnSlimes(20, 1.5f, "Bomb");
-                break;
-            case 10:
-                SpawnSlimes(50, 1f, "Common");
-                SpawnSlimes(30, 2f, "Archer");
-                SpawnSlimes(25, 1.5f, "Bomb");
+            case 15:
+                SpawnSlimes(30, 1f, "Common");
+                SpawnSlimes(5, 4f, "Archer");
+                SpawnSlimes(5, 4f, "Bomb");
                 break;
         }
     }

@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class DisableSound : MonoBehaviour
 {
+    [SerializeField] private float clipTime;
     private float timer;
 
     private void Start()
     {
-        timer = 0.2f;
+        timer = clipTime;
     }
 
     void Update()
@@ -14,7 +15,7 @@ public class DisableSound : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
-            timer = 0.5f;
+            timer = clipTime;
             gameObject.SetActive(false);
         }
     }

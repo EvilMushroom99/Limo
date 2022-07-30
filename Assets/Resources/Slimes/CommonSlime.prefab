@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 100
-  attack: 10
+  attack: 15
   attackSpeed: 1.2
   velocity: 1
   appearTime: 1.25

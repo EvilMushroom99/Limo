@@ -52,16 +52,19 @@ MonoBehaviour:
   area:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 2, y: 2, z: 1}
-  pop: 5
+  pop: 0
   wood: 5
   food: 0
   life: 150
+  buildingRange: {fileID: 0}
   normal: {fileID: -7664500169114961678, guid: 3e044a9cac637584988869257a77e38e, type: 3}
   green: {fileID: 3566804289847954244, guid: 3e044a9cac637584988869257a77e38e, type: 3}
   red: {fileID: 4501203459997957025, guid: 3e044a9cac637584988869257a77e38e, type: 3}
   currentSprite: {fileID: 1102217771209521372}
   baseMaterial: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   hitMaterial: {fileID: 2100000, guid: cccea25b6fa55604da9c63320433bd4b, type: 3}
+  hitExplotion: {fileID: 0}
+  hitbox: {fileID: 218630144128083561}
   slider: {fileID: 7171310922363321708}
   fires:
   - {fileID: 1027014608590486314}
@@ -167,7 +170,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000000029802322, y: -0.0338915}
+  m_Offset: {x: 0, y: 0.0026208758}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -178,7 +181,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8741172, y: 0.69013464}
+  m_Size: {x: 0.9936123, y: 0.9888722}
   m_EdgeRadius: 0
 --- !u!50 &2216693953108181451
 Rigidbody2D:
@@ -574,12 +577,21 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4453535629539375743, guid: 6f39703b0cd1d674ead84a01b8c44be9, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 9059313710314408958}
     - target: {fileID: 6277506575146924782, guid: 6f39703b0cd1d674ead84a01b8c44be9, type: 3}
       propertyPath: m_Name
       value: Hitbox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f39703b0cd1d674ead84a01b8c44be9, type: 3}
+--- !u!1 &218630144128083561 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6277506575146924782, guid: 6f39703b0cd1d674ead84a01b8c44be9, type: 3}
+  m_PrefabInstance: {fileID: 6059193133357194375}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5531630915285047788 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1788730661358503275, guid: 6f39703b0cd1d674ead84a01b8c44be9, type: 3}

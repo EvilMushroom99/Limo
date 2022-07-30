@@ -42,6 +42,22 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource WarTime;
     [SerializeField] AudioSource WaveCompleted;
 
+    //LoopSounds
+    [SerializeField] AudioSource MainMenu;
+    [SerializeField] AudioSource Gameplay;
+
+
+    public void PlayMainTheme()
+    {
+        Gameplay.Stop();
+        MainMenu.Play();
+    }
+
+    public void PlayGameplayTheme()
+    {
+        MainMenu.Stop();
+        Gameplay.Play();
+    }
 
     //Pool
     public void PlaySlimeJump()

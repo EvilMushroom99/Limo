@@ -20,7 +20,6 @@ public class SpikeTrap : MonoBehaviour
         }
         else
         {
-            AudioManager.Instance.PlaySpikeTowerActivate();
             hitbox.SetActive(true);
             trap.SetActive(true);
         }
@@ -44,11 +43,9 @@ public class SpikeTrap : MonoBehaviour
         {
             if (!trap.activeInHierarchy)
             {
-
-                if (collision.gameObject.transform.position.y >= transform.position.y)
-                {
-                    activate = true;
-                }
+                Debug.Log("it a trap!");
+                activate = true;
+                AudioManager.Instance.PlaySpikeTowerActivate();
             }
         }
     }

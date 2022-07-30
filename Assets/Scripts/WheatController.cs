@@ -43,7 +43,7 @@ public class WheatController : MonoBehaviour
         woodText.text = "+" + food;
     }
 
-    private void OnMouseOver()
+    private void OnMouseEnter()
     {
         if (!GameManager.Instance.warTime)
         {

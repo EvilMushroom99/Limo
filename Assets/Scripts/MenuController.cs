@@ -10,6 +10,7 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.Instance.PlayMainTheme();
         anim = GetComponent<Animator>();
     }
 
@@ -40,6 +41,7 @@ public class MenuController : MonoBehaviour
                 break;
             case "Menu4P":
                 AudioManager.Instance.PlayMenuSelection();
+                StartCoroutine(ExitGame());
                 break;
         }
     }
@@ -49,6 +51,13 @@ public class MenuController : MonoBehaviour
         fade.Play("Close");
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene("Gameplay", LoadSceneMode.Single);
+    }
+
+    IEnumerator ExitGame()
+    {
+        fade.Play("Close");
+        yield return new WaitForSeconds(1.5f);
+        Application.Quit();
     }
 
     public void Unpressed()

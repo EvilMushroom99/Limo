@@ -20,6 +20,8 @@ public class BombSlimeController : MonoBehaviour
     [SerializeField] private Material baseMaterial;
     [SerializeField] private Material hitMaterial;
 
+    private bool dead;
+
     private bool targetFound;
     private bool attacking;
     private GameObject currentTarget;
@@ -154,8 +156,9 @@ public class BombSlimeController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         life -= damage;
-        if (life <= 0)
+        if (life <= 0 && !dead)
         {
+            dead = true;
             AudioManager.Instance.PlaySlimeDie();
             GameManager.Instance.totalSlimes -= 1;
             GameObject particle = Instantiate(deathParticle);

@@ -22,6 +22,7 @@ public class SlimeController : MonoBehaviour
     [SerializeField] private Material baseMaterial;
     [SerializeField] private Material hitMaterial;
 
+    private bool dead;
 
     private GameObject currentTarget;
 
@@ -155,8 +156,9 @@ public class SlimeController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         life -= damage;
-        if (life <= 0)
+        if (life <= 0 && !dead)
         {
+            dead = true;
             AudioManager.Instance.PlaySlimeDie();
             GameManager.Instance.totalSlimes -= 1;
             GameObject particle = Instantiate(deathParticle);
