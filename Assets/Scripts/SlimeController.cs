@@ -203,11 +203,23 @@ public class SlimeController : MonoBehaviour
                 break;
 
             case "Bomb":
-                FireBallBomb bomb = collision.GetComponent<FireBallBomb>();
-                TakeDamage(bomb.MakeDamage());
-                AudioManager.Instance.PlaySlimeHit();
-                hit = true;
-                hitTime = 0.25f;
+
+                if (collision.gameObject.name.StartsWith("BlackHole"))
+                {
+                    BlackHoleBomb blackHoleBomb = collision.GetComponent<BlackHoleBomb>();
+                    TakeDamage(blackHoleBomb.MakeDamage());
+                    AudioManager.Instance.PlaySlimeHit();
+                    hit = true;
+                    hitTime = 0.25f;
+                }
+                else
+                {
+                    FireBallBomb bomb = collision.GetComponent<FireBallBomb>();
+                    TakeDamage(bomb.MakeDamage());
+                    AudioManager.Instance.PlaySlimeHit();
+                    hit = true;
+                    hitTime = 0.25f;
+                }
                 break;
 
             case "Trap":

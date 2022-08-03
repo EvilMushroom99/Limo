@@ -6,6 +6,11 @@ public class FireBallBomb : MonoBehaviour
 
     private float deathTime = 0.25f;
 
+    private void Start()
+    {
+        AudioManager.Instance.PlayFireBallExplotion();
+    }
+
     private void Update()
     {
         deathTime -= Time.deltaTime;

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9021597011974022841}
   - component: {fileID: 9021597011974022842}
   - component: {fileID: 6858230746154691868}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArcherSlime
   m_TagString: Enemy
   m_Icon: {fileID: 0}

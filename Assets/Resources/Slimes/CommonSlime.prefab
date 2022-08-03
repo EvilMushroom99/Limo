@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 63943961226547831}
   - component: {fileID: 63943961226547830}
   - component: {fileID: 63943961226547829}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CommonSlime
   m_TagString: Enemy
   m_Icon: {fileID: 0}

@@ -28,7 +28,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] GameObject[] ArcherTowerAttack;
     [SerializeField] GameObject[] FireTowerAttack;
     [SerializeField] GameObject[] SpikeTowerActivate;
+    [SerializeField] GameObject[] VoidTowerAttack;
     [SerializeField] GameObject[] FireBallExplotion;
+    [SerializeField] GameObject[] BlackHoleExplotion;
+    [SerializeField] GameObject[] BlackHoleCharge;
 
     [SerializeField] AudioSource MenuSelection;
     [SerializeField] AudioSource MenuSelectionBuilding;
@@ -164,6 +167,19 @@ public class AudioManager : MonoBehaviour
     }
 
     //Pool
+    public void PlayVoidTowerAttack()
+    {
+        for (int i = 0; i < VoidTowerAttack.Length; i++)
+        {
+            if (!VoidTowerAttack[i].activeInHierarchy)
+            {
+                VoidTowerAttack[i].SetActive(true);
+                break;
+            }
+        }
+    }
+
+    //Pool
     public void PlayFireBallExplotion()
     {
         for (int i = 0; i < FireBallExplotion.Length; i++)
@@ -171,6 +187,32 @@ public class AudioManager : MonoBehaviour
             if (!FireBallExplotion[i].activeInHierarchy)
             {
                 FireBallExplotion[i].SetActive(true);
+                break;
+            }
+        }
+    }
+
+    //Pool
+    public void PlayBlackHoleExplotion()
+    {
+        for (int i = 0; i < BlackHoleExplotion.Length; i++)
+        {
+            if (!BlackHoleExplotion[i].activeInHierarchy)
+            {
+                BlackHoleExplotion[i].SetActive(true);
+                break;
+            }
+        }
+    }
+
+    //Pool
+    public void PlayBlackHoleCharge()
+    {
+        for (int i = 0; i < BlackHoleCharge.Length; i++)
+        {
+            if (!BlackHoleCharge[i].activeInHierarchy)
+            {
+                BlackHoleCharge[i].SetActive(true);
                 break;
             }
         }

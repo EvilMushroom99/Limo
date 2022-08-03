@@ -39,7 +39,6 @@ public class Arrow : MonoBehaviour
 
     public void Expand()
     {
-        AudioManager.Instance.PlayFireBallExplotion();
         Instantiate(area, transform.position, Quaternion.identity);
     }
 

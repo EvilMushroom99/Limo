@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5830114166179564838}
   - component: {fileID: 5830114166179564837}
   - component: {fileID: 4862930045311338286}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BombSlime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
