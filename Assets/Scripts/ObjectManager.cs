@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
 {
-    private List<GameObject> Slimes = new List<GameObject>();
     private List<GameObject> Buildings = new List<GameObject>();
     private List<GameObject> PopBuildings = new List<GameObject>();
     private List<GameObject> WoodBuildings = new List<GameObject>();
@@ -18,7 +17,6 @@ public class ObjectManager : MonoBehaviour
         }
         else if (Instance != this)
         {
-            Debug.Log("Instance already exists, destroying object!");
             Destroy(this);
         }
     }
@@ -146,13 +144,17 @@ public class ObjectManager : MonoBehaviour
 
     public bool IsThereAnyTower()
     {
-        if (Buildings.Count > 0)
+        for(int i = 0; i < Buildings.Count; i++)
         {
-            return true;
+            if (Buildings[i].CompareTag("Tower"))
+            {
+                if (Buildings[i].activeInHierarchy)
+                {
+                    return true;
+                }
+            }
         }
-        else
-        {
-            return false;
-        }
+
+        return false;
     }
 }

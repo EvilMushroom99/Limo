@@ -13,7 +13,6 @@ public class AudioManager : MonoBehaviour
         }
         else if (Instance != this)
         {
-            Debug.Log("Instance already exists, destroying object!");
             Destroy(this);
         }
     }
@@ -49,28 +48,66 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource MainMenu;
     [SerializeField] AudioSource Gameplay;
 
+    //SoundOn
+    private bool music = true;
+    private bool sounds = true; 
+
+    public void MusicOff()
+    {
+        if (music)
+        {
+            music = false;
+            MainMenu.Stop();
+        }
+        else
+        {
+            MainMenu.Play();
+            music = true;
+        }
+    }
+
+    public void SoundsOff()
+    {
+        if (sounds)
+        {
+            sounds = false;
+        }
+        else
+        {
+            sounds = true;
+        }
+    }
 
     public void PlayMainTheme()
     {
-        Gameplay.Stop();
-        MainMenu.Play();
+        if (music)
+        {
+            Gameplay.Stop();
+            MainMenu.Play();
+        }
     }
 
     public void PlayGameplayTheme()
     {
-        MainMenu.Stop();
-        Gameplay.Play();
+        if (music)
+        {
+            MainMenu.Stop();
+            Gameplay.Play();
+        }
     }
 
     //Pool
     public void PlaySlimeJump()
     {
-        for (int i = 0; i < SlimeJump.Length; i++)
+        if (sounds)
         {
-            if (!SlimeJump[i].activeInHierarchy)
+            for (int i = 0; i < SlimeJump.Length; i++)
             {
-                SlimeJump[i].SetActive(true);
-                break;
+                if (!SlimeJump[i].activeInHierarchy)
+                {
+                    SlimeJump[i].SetActive(true);
+                    break;
+                }
             }
         }
     }
@@ -78,12 +115,15 @@ public class AudioManager : MonoBehaviour
     //Pool
     public void PlaySlimeDie()
     {
-        for (int i = 0; i < SlimeDie.Length; i++)
+        if (sounds)
         {
-            if (!SlimeDie[i].activeInHierarchy)
+            for (int i = 0; i < SlimeDie.Length; i++)
             {
-                SlimeDie[i].SetActive(true);
-                break;
+                if (!SlimeDie[i].activeInHierarchy)
+                {
+                    SlimeDie[i].SetActive(true);
+                    break;
+                }
             }
         }
     }
@@ -91,12 +131,15 @@ public class AudioManager : MonoBehaviour
     //Pool
     public void PlaySlimeHit()
     {
-        for (int i = 0; i < SlimeHit.Length; i++)
+        if (sounds)
         {
-            if (!SlimeHit[i].activeInHierarchy)
+            for (int i = 0; i < SlimeHit.Length; i++)
             {
-                SlimeHit[i].SetActive(true);
-                break;
+                if (!SlimeHit[i].activeInHierarchy)
+                {
+                    SlimeHit[i].SetActive(true);
+                    break;
+                }
             }
         }
     }
@@ -104,12 +147,15 @@ public class AudioManager : MonoBehaviour
     //Pool
     public void PlayCommonSlimeAttack()
     {
-        for (int i = 0; i < CommonSlimeAttack.Length; i++)
+        if (sounds)
         {
-            if (!CommonSlimeAttack[i].activeInHierarchy)
+            for (int i = 0; i < CommonSlimeAttack.Length; i++)
             {
-                CommonSlimeAttack[i].SetActive(true);
-                break;
+                if (!CommonSlimeAttack[i].activeInHierarchy)
+                {
+                    CommonSlimeAttack[i].SetActive(true);
+                    break;
+                }
             }
         }
     }
@@ -117,12 +163,15 @@ public class AudioManager : MonoBehaviour
     //Pool
     public void PlayArcherSlimeAttack()
     {
-        for (int i = 0; i < ArcherSlimeAttack.Length; i++)
+        if (sounds)
         {
-            if (!ArcherSlimeAttack[i].activeInHierarchy)
+            for (int i = 0; i < ArcherSlimeAttack.Length; i++)
             {
-                ArcherSlimeAttack[i].SetActive(true);
-                break;
+                if (!ArcherSlimeAttack[i].activeInHierarchy)
+                {
+                    ArcherSlimeAttack[i].SetActive(true);
+                    break;
+                }
             }
         }
     }
@@ -130,12 +179,15 @@ public class AudioManager : MonoBehaviour
     //Pool
     public void PlayBombSlimeAttack()
     {
-        for (int i = 0; i < BombSlimeAttack.Length; i++)
+        if (sounds)
         {
-            if (!BombSlimeAttack[i].activeInHierarchy)
+            for (int i = 0; i < BombSlimeAttack.Length; i++)
             {
-                BombSlimeAttack[i].SetActive(true);
-                break;
+                if (!BombSlimeAttack[i].activeInHierarchy)
+                {
+                    BombSlimeAttack[i].SetActive(true);
+                    break;
+                }
             }
         }
     }
@@ -143,12 +195,15 @@ public class AudioManager : MonoBehaviour
     //Pool
     public void PlayArcherTowerAttack()
     {
-        for (int i = 0; i < ArcherTowerAttack.Length; i++)
+        if (sounds)
         {
-            if (!ArcherTowerAttack[i].activeInHierarchy)
+            for (int i = 0; i < ArcherTowerAttack.Length; i++)
             {
-                ArcherTowerAttack[i].SetActive(true);
-                break;
+                if (!ArcherTowerAttack[i].activeInHierarchy)
+                {
+                    ArcherTowerAttack[i].SetActive(true);
+                    break;
+                }
             }
         }
     }
@@ -156,12 +211,15 @@ public class AudioManager : MonoBehaviour
     //Pool
     public void PlayFireTowerAttack()
     {
-        for (int i = 0; i < FireTowerAttack.Length; i++)
+        if (sounds)
         {
-            if (!FireTowerAttack[i].activeInHierarchy)
+            for (int i = 0; i < FireTowerAttack.Length; i++)
             {
-                FireTowerAttack[i].SetActive(true);
-                break;
+                if (!FireTowerAttack[i].activeInHierarchy)
+                {
+                    FireTowerAttack[i].SetActive(true);
+                    break;
+                }
             }
         }
     }
@@ -169,12 +227,15 @@ public class AudioManager : MonoBehaviour
     //Pool
     public void PlayVoidTowerAttack()
     {
-        for (int i = 0; i < VoidTowerAttack.Length; i++)
+        if (sounds)
         {
-            if (!VoidTowerAttack[i].activeInHierarchy)
+            for (int i = 0; i < VoidTowerAttack.Length; i++)
             {
-                VoidTowerAttack[i].SetActive(true);
-                break;
+                if (!VoidTowerAttack[i].activeInHierarchy)
+                {
+                    VoidTowerAttack[i].SetActive(true);
+                    break;
+                }
             }
         }
     }
@@ -182,12 +243,15 @@ public class AudioManager : MonoBehaviour
     //Pool
     public void PlayFireBallExplotion()
     {
-        for (int i = 0; i < FireBallExplotion.Length; i++)
+        if (sounds)
         {
-            if (!FireBallExplotion[i].activeInHierarchy)
+            for (int i = 0; i < FireBallExplotion.Length; i++)
             {
-                FireBallExplotion[i].SetActive(true);
-                break;
+                if (!FireBallExplotion[i].activeInHierarchy)
+                {
+                    FireBallExplotion[i].SetActive(true);
+                    break;
+                }
             }
         }
     }
@@ -195,12 +259,15 @@ public class AudioManager : MonoBehaviour
     //Pool
     public void PlayBlackHoleExplotion()
     {
-        for (int i = 0; i < BlackHoleExplotion.Length; i++)
+        if (sounds)
         {
-            if (!BlackHoleExplotion[i].activeInHierarchy)
+            for (int i = 0; i < BlackHoleExplotion.Length; i++)
             {
-                BlackHoleExplotion[i].SetActive(true);
-                break;
+                if (!BlackHoleExplotion[i].activeInHierarchy)
+                {
+                    BlackHoleExplotion[i].SetActive(true);
+                    break;
+                }
             }
         }
     }
@@ -208,12 +275,15 @@ public class AudioManager : MonoBehaviour
     //Pool
     public void PlayBlackHoleCharge()
     {
-        for (int i = 0; i < BlackHoleCharge.Length; i++)
+        if (sounds)
         {
-            if (!BlackHoleCharge[i].activeInHierarchy)
+            for (int i = 0; i < BlackHoleCharge.Length; i++)
             {
-                BlackHoleCharge[i].SetActive(true);
-                break;
+                if (!BlackHoleCharge[i].activeInHierarchy)
+                {
+                    BlackHoleCharge[i].SetActive(true);
+                    break;
+                }
             }
         }
     }
@@ -221,12 +291,15 @@ public class AudioManager : MonoBehaviour
     //Pool
     public void PlaySpikeTowerActivate()
     {
-        for (int i = 0; i < SpikeTowerActivate.Length; i++)
+        if (sounds)
         {
-            if (!SpikeTowerActivate[i].activeInHierarchy)
+            for (int i = 0; i < SpikeTowerActivate.Length; i++)
             {
-                SpikeTowerActivate[i].SetActive(true);
-                break;
+                if (!SpikeTowerActivate[i].activeInHierarchy)
+                {
+                    SpikeTowerActivate[i].SetActive(true);
+                    break;
+                }
             }
         }
     }
@@ -235,42 +308,60 @@ public class AudioManager : MonoBehaviour
     //Not Pool
     public void PlayMenuSelection()
     {
-        MenuSelection.Play();
+        if (sounds)
+        {
+            MenuSelection.Play();
+        }
     }
 
     //Not Pool
     public void PlayMenuSelectionBuilding()
     {
-        MenuSelectionBuilding.Play();
+        if (sounds)
+        {
+            MenuSelectionBuilding.Play();
+        }
     }
 
     //Not Pool
     public void PlayMenuSelectionBuildingDeny()
     {
-        MenuSelectionBuildingDeny.Play();
+        if (sounds)
+        {
+            MenuSelectionBuildingDeny.Play();
+        }
     }
 
     //Not Pool
     public void PlayBuildingPlaceDeny()
     {
-        BuildingPlaceDeny.Play();
+        if (sounds)
+        {
+            BuildingPlaceDeny.Play();
+        }
     }
 
     //Not Pool
     public void PlayBuildingPlaced()
     {
-        BuildingPlaced.Play();
+        if (sounds)
+        {
+            BuildingPlaced.Play();
+        }
     }
 
     //Pool
     public void PlayBuildingDestroyed()
     {
-        for (int i = 0; i < BuildingDestroyed.Length; i++)
+        if (sounds)
         {
-            if (!BuildingDestroyed[i].activeInHierarchy)
+            for (int i = 0; i < BuildingDestroyed.Length; i++)
             {
-                BuildingDestroyed[i].SetActive(true);
-                break;
+                if (!BuildingDestroyed[i].activeInHierarchy)
+                {
+                    BuildingDestroyed[i].SetActive(true);
+                    break;
+                }
             }
         }
     }
@@ -278,23 +369,32 @@ public class AudioManager : MonoBehaviour
     //Pool
     public void PlayBuildingHit()
     {
-        for (int i = 0; i < BuildingHit.Length; i++)
+        if (sounds)
         {
-            if (!BuildingHit[i].activeInHierarchy)
+            for (int i = 0; i < BuildingHit.Length; i++)
             {
-                BuildingHit[i].SetActive(true);
-                break;
+                if (!BuildingHit[i].activeInHierarchy)
+                {
+                    BuildingHit[i].SetActive(true);
+                    break;
+                }
             }
         }
     }
 
     public void PlayWarDrums()
     {
-        WarTime.Play();
+        if (sounds)
+        {
+            WarTime.Play();
+        }
     }
 
     public void PlayWaveCompleted()
     {
-        WaveCompleted.Play();
+        if (sounds)
+        {
+            WaveCompleted.Play();
+        }
     }
 }

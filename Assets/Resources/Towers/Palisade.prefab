@@ -199,6 +199,7 @@ MonoBehaviour:
   fires:
   - {fileID: 5197107576357346798}
   - {fileID: 4470923118792190112}
+  towerParticle: {fileID: 856067443979945259, guid: f4a509d785686324da4f41b0fbe12f96, type: 3}
   buildingType: 0
 --- !u!1001 &2602677543140225712
 PrefabInstance:

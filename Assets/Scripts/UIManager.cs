@@ -52,6 +52,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject buildingWood;
     [SerializeField] private GameObject buildingFood;
     [SerializeField] private GameObject buildingPop;
+
+    //Tutorial
+    [SerializeField] private GameObject tutorial;
+    [SerializeField] private GameObject[] tutorials;
+    private int pageCount = 0;
     
     private void Update()
     {
@@ -70,6 +75,34 @@ public class UIManager : MonoBehaviour
         {
             slimesLeft.text = GameManager.Instance.totalSlimes.ToString();
         }
+    }
+
+    public void NextPage()
+    {
+        AudioManager.Instance.PlayMenuSelectionBuilding();
+        if (pageCount < 4)
+        {
+            pageCount += 1;
+            tutorials[pageCount - 1].SetActive(false);
+            tutorials[pageCount].SetActive(true);
+        }
+    }
+
+    public void PreviusPage()
+    {
+        AudioManager.Instance.PlayMenuSelectionBuilding();
+        if (pageCount > 0)
+        {
+            pageCount -= 1;
+            tutorials[pageCount].SetActive(true);
+            tutorials[pageCount + 1].SetActive(false);
+        }
+    }
+
+    public void CloseTutorial()
+    {
+        AudioManager.Instance.PlayMenuSelectionBuilding();
+        tutorial.SetActive(false);
     }
 
     public void SetAmounts(int pop, int wd, int fd, int wv)
@@ -253,7 +286,7 @@ public class UIManager : MonoBehaviour
     IEnumerator WaveAnim(string description)
     {
         waveAnim.SetActive(true);
-        waveAnim.GetComponent<Text>().text = "Wave " + description;
+        waveAnim.GetComponent<Text>().text = description;
         yield return new WaitForSeconds(5.2f);
         waveAnim.SetActive(false);
     }

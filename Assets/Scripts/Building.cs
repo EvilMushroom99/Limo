@@ -27,6 +27,7 @@ public class Building : MonoBehaviour
     [SerializeField] private Slider slider;
 
     [SerializeField] private GameObject[] fires;
+    [SerializeField] private GameObject towerParticle;
 
     private enum BuildingType
     {
@@ -107,6 +108,7 @@ public class Building : MonoBehaviour
         if (life <= 0)
         {
             AudioManager.Instance.PlayBuildingDestroyed();
+            Instantiate(towerParticle, transform.GetChild(0).transform.position, Quaternion.identity);
             DestroyBuilding();
         }
         if (life <= totalLife / 1.5f)

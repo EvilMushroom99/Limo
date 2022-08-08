@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: ValentinNicolasGaudio
   productName: Limo
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -146,7 +146,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Standalone: com.DefaultCompany.Limo
+    Standalone: com.ValentinNicolasGaudio.Limo
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -261,7 +261,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 47510cd27b2d9d948a100d3cd796fc10, type: 3}
+      m_Icon: {fileID: 2800000, guid: f2a7722a378a08b42b23a035abfe50be, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

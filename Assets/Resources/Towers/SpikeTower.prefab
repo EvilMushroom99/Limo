@@ -217,7 +217,7 @@ MonoBehaviour:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 1, y: 1, z: 1}
   pop: 0
-  wood: 3
+  wood: 2
   food: 0
   life: 50
   buildingRange: {fileID: 0}
@@ -232,6 +232,7 @@ MonoBehaviour:
   slider: {fileID: 9221968460285677502}
   fires:
   - {fileID: 3484629523339278274}
+  towerParticle: {fileID: 856067443979945259, guid: f4a509d785686324da4f41b0fbe12f96, type: 3}
   buildingType: 0
 --- !u!1 &3137061564949847927
 GameObject:

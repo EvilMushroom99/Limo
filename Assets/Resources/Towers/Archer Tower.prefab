@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 2667524431472119290}
   m_Layer: 0
   m_Name: Archer Tower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -284,10 +284,10 @@ MonoBehaviour:
   area:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 2, y: 2, z: 1}
-  pop: 4
-  wood: 4
+  pop: 5
+  wood: 5
   food: 0
-  life: 200
+  life: 150
   buildingRange: {fileID: 551239707533653179}
   normal: {fileID: 604486485982949020, guid: 3e044a9cac637584988869257a77e38e, type: 3}
   green: {fileID: -5866773171951616500, guid: 3e044a9cac637584988869257a77e38e, type: 3}
@@ -302,6 +302,7 @@ MonoBehaviour:
   - {fileID: 2131965928306544872}
   - {fileID: 6648350732690313372}
   - {fileID: 3230786291867664102}
+  towerParticle: {fileID: 856067443979945259, guid: f4a509d785686324da4f41b0fbe12f96, type: 3}
   buildingType: 0
 --- !u!1 &8840966418879143808
 GameObject:

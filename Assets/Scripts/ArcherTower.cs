@@ -48,6 +48,7 @@ public class ArcherTower : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             targets.Remove(collision.gameObject);
+            target = null;
         }
     }
 

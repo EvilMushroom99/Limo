@@ -48,6 +48,7 @@ public class VoidTower : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             targets.Remove(collision.gameObject);
+            target = null;
         }
     }
 

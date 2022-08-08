@@ -70,6 +70,7 @@ MonoBehaviour:
   - {fileID: 1027014608590486314}
   - {fileID: 7286500937883215342}
   - {fileID: 4006135947609018015}
+  towerParticle: {fileID: 856067443979945259, guid: f4a509d785686324da4f41b0fbe12f96, type: 3}
   buildingType: 4
 --- !u!1 &8024700207662722802
 GameObject:

@@ -285,7 +285,7 @@ MonoBehaviour:
   pop: 0
   wood: 5
   food: 5
-  life: 150
+  life: 200
   buildingRange: {fileID: 2196012252411423006}
   normal: {fileID: -3985759516408998331, guid: 3e044a9cac637584988869257a77e38e, type: 3}
   green: {fileID: -7011020414044352858, guid: 3e044a9cac637584988869257a77e38e, type: 3}
@@ -300,6 +300,7 @@ MonoBehaviour:
   - {fileID: 4654736243696524470}
   - {fileID: 8134342346486396358}
   - {fileID: 5239683983356065281}
+  towerParticle: {fileID: 856067443979945259, guid: f4a509d785686324da4f41b0fbe12f96, type: 3}
   buildingType: 2
 --- !u!1001 &407109179406980176
 PrefabInstance:
