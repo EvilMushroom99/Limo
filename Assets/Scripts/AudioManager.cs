@@ -46,11 +46,12 @@ public class AudioManager : MonoBehaviour
 
     //LoopSounds
     [SerializeField] AudioSource MainMenu;
-    [SerializeField] AudioSource Gameplay;
+    [SerializeField] AudioSource WarMusic;
+    [SerializeField] AudioSource PeacefulMusic;
 
     //SoundOn
     private bool music = true;
-    private bool sounds = true; 
+    private bool sounds = true;
 
     public void MusicOff()
     {
@@ -82,7 +83,7 @@ public class AudioManager : MonoBehaviour
     {
         if (music)
         {
-            Gameplay.Stop();
+            PeacefulMusic.Stop();
             MainMenu.Play();
         }
     }
@@ -92,7 +93,17 @@ public class AudioManager : MonoBehaviour
         if (music)
         {
             MainMenu.Stop();
-            Gameplay.Play();
+            WarMusic.Stop();
+            PeacefulMusic.Play();
+        }
+    }
+
+    public void PlayWarMusic()
+    {
+        if (music)
+        {
+            PeacefulMusic.Stop();
+            WarMusic.Play();
         }
     }
 

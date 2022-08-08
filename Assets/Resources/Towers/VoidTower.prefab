@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 773426950003361532}
   - component: {fileID: 1334791451656970306}
   - component: {fileID: 7007452063060922021}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 1453308639868328146}
   - component: {fileID: 7161345140648607071}
   - component: {fileID: 7376788913368270837}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LifeCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 8408433090491408160}
   - component: {fileID: 2869873550853966386}
   - component: {fileID: 2182107625917358843}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 1008766900519754905}
   - component: {fileID: 5895568290080593244}
   - component: {fileID: 4457777009599931480}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fire (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 5228226523562638447}
   - component: {fileID: 8076142319268855324}
   - component: {fileID: 5695725290173463639}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hitbox
   m_TagString: HitBox
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3606420310210275449}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ShootingPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,7 +460,7 @@ GameObject:
   m_Component:
   - component: {fileID: 184772105684402510}
   - component: {fileID: 4554950352468165629}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,7 +543,7 @@ GameObject:
   - component: {fileID: 3445716032411498529}
   - component: {fileID: 3628771247068494616}
   - component: {fileID: 9108330852100694909}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -641,7 +641,7 @@ GameObject:
   - component: {fileID: 5488252240745635053}
   - component: {fileID: 1154232589252023592}
   - component: {fileID: 8937631923155444780}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -742,7 +742,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7113171113097816537}
   - component: {fileID: 7113171113097816538}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: VoidTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -819,7 +819,7 @@ GameObject:
   - component: {fileID: 3247713702150964066}
   - component: {fileID: 2003333379808574972}
   - component: {fileID: 6079574670793577529}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: VoidTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -985,7 +985,7 @@ GameObject:
   - component: {fileID: 9037172909112111843}
   - component: {fileID: 2397292518778632998}
   - component: {fileID: 5568864035976546850}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fire (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

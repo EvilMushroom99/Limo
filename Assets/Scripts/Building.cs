@@ -64,10 +64,18 @@ public class Building : MonoBehaviour
         if (!GameManager.Instance.warTime)
         {
             hitbox.SetActive(false);
+            if (buildingType == BuildingType.Tower)
+            {
+                GetComponentInChildren<BoxCollider2D>().enabled = false;
+            }
         }
-        else if (!hitbox.activeInHierarchy)
+        else if (GameManager.Instance.warTime)
         {
             hitbox.SetActive(true);
+            if (buildingType == BuildingType.Tower)
+            {
+                GetComponentInChildren<BoxCollider2D>().enabled = true;
+            }
         }
     }
 

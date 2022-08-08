@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6702245318535112987}
   - component: {fileID: 169602687993175178}
   - component: {fileID: 5620524263540241946}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpikeTower
   m_TagString: Trap
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 633130645980785363}
   - component: {fileID: 633130645980785360}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpikeTower
   m_TagString: Trap
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 8504314595272081180}
   - component: {fileID: 4658628272745055462}
   - component: {fileID: 5821992939519132551}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TrapArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 2761951024455901159}
   - component: {fileID: 8825634613957301794}
   - component: {fileID: 1618625590532106022}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 2517582379433017189}
   - component: {fileID: 1903442786227469590}
   - component: {fileID: 2699094879675727709}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hitbox
   m_TagString: HitBox
   m_Icon: {fileID: 0}
@@ -531,7 +531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4611133341074657472}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tower
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -561,12 +561,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 633130645980785363}
     m_Modifications:
     - target: {fileID: 4189772601066876052, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189772601066876052, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7165519152427667485, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7600504906795270017, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
       propertyPath: m_Name
       value: LifeCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7600504906795270017, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7918185949433343525, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
       propertyPath: m_Pivot.x
@@ -659,6 +671,10 @@ PrefabInstance:
     - target: {fileID: 8319273448371597323, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143519166756063010, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b0592550aee4544088f7c93e1215093, type: 3}

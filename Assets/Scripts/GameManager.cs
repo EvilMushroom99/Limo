@@ -33,10 +33,10 @@ public class GameManager : MonoBehaviour
     {
 
         AudioManager.Instance.PlayGameplayTheme();
-        wave = 29;
-        population = 3000;
-        wood = 3000;
-        food = 3000;
+        wave = 0;
+        population = 30;
+        wood = 30;
+        food = 30;
 
         UIManager.Instance.SetAmounts(population, wood, food, wave);
     }
@@ -47,10 +47,11 @@ public class GameManager : MonoBehaviour
         {
             if (!spawningTime && totalSlimes <= 0 && warTime)
             {
-                if (wave != 1)
+                if (wave != 31)
                 {
                     AudioManager.Instance.PlayWaveCompleted();
                     UIManager.Instance.WaveTarget("Wave Completed");
+                    AudioManager.Instance.PlayGameplayTheme();
                 }
                 else
                 {
@@ -156,6 +157,7 @@ public class GameManager : MonoBehaviour
         WaveConfig();
         UIManager.Instance.WaveTarget("Wave " + wave.ToString());
         AudioManager.Instance.PlayWarDrums();
+        AudioManager.Instance.PlayWarMusic();
     }
 
     public bool EnoughResources()
@@ -231,21 +233,21 @@ public class GameManager : MonoBehaviour
         switch (wave)
         {
             case 1:
-                SpawnSlimes(1, 1f, "Common");
+                SpawnSlimes(4, 1f, "Common");
                 break;
 
             case 2:
-                SpawnSlimes(6, 2f, "Common");
+                SpawnSlimes(7, 2f, "Common");
                 break;
 
             case 3:
-                SpawnSlimes(3, 2f, "Common");
-                SpawnSlimes(1, 2f, "Archer");
+                SpawnSlimes(4, 2f, "Common");
+                SpawnSlimes(2, 2f, "Archer");
                 break;
 
             case 4:
                 SpawnSlimes(4, 2f, "Common");
-                SpawnSlimes(2, 2f, "Archer");
+                SpawnSlimes(4, 2f, "Archer");
                 break;
 
             case 5:

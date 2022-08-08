@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2749123263231199246}
   - component: {fileID: 2901842321087744220}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5746187730846401706}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7277305145493578519}
   - component: {fileID: 7277305145493578516}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FireTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 951836592952934957}
   - component: {fileID: 7734166158428232648}
   - component: {fileID: 3718751691832703528}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FireTower1
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -427,6 +427,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hitbox
       objectReference: {fileID: 0}
+    - target: {fileID: 6277506575146924782, guid: 6f39703b0cd1d674ead84a01b8c44be9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f39703b0cd1d674ead84a01b8c44be9, type: 3}
 --- !u!1 &8818419904342510497 stripped
@@ -447,6 +451,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 7277305145493578519}
     m_Modifications:
     - target: {fileID: 4189772601066876052, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189772601066876052, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -458,9 +466,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.028
       objectReference: {fileID: 0}
+    - target: {fileID: 7165519152427667485, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7600504906795270017, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
       propertyPath: m_Name
       value: LifeCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7600504906795270017, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7918185949433343525, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
       propertyPath: m_Pivot.x
@@ -562,6 +578,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9143519166756063010, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
 --- !u!224 &6716982091780139748 stripped
@@ -640,6 +660,10 @@ PrefabInstance:
       value: Fire
       objectReference: {fileID: 0}
     - target: {fileID: 8450066681998844310, guid: 321663dd034db7042a26678760edb148, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450066681998844310, guid: 321663dd034db7042a26678760edb148, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -713,6 +737,10 @@ PrefabInstance:
     - target: {fileID: 8450066681998844310, guid: 321663dd034db7042a26678760edb148, type: 3}
       propertyPath: m_Name
       value: Fire (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450066681998844310, guid: 321663dd034db7042a26678760edb148, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8450066681998844310, guid: 321663dd034db7042a26678760edb148, type: 3}
       propertyPath: m_IsActive

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7070867347078951471}
   - component: {fileID: 39953662519846976}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2504519829205486836}
   - component: {fileID: 8078444252106899893}
   - component: {fileID: 7689291452109990647}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sawmill1
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3380174103607114615}
   - component: {fileID: 1119622880041565932}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sawmill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,6 +310,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3380174103607114615}
     m_Modifications:
     - target: {fileID: 4189772601066876052, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189772601066876052, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -321,9 +325,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 7165519152427667485, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7600504906795270017, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
       propertyPath: m_Name
       value: LifeCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7600504906795270017, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7600504906795270017, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
       propertyPath: m_IsActive
@@ -429,6 +441,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9143519166756063010, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b0592550aee4544088f7c93e1215093, type: 3}
 --- !u!224 &7554756728376770579 stripped
@@ -511,6 +527,10 @@ PrefabInstance:
       value: Fire
       objectReference: {fileID: 0}
     - target: {fileID: 8450066681998844310, guid: 321663dd034db7042a26678760edb148, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450066681998844310, guid: 321663dd034db7042a26678760edb148, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -588,6 +608,10 @@ PrefabInstance:
     - target: {fileID: 8450066681998844310, guid: 321663dd034db7042a26678760edb148, type: 3}
       propertyPath: m_Name
       value: Fire (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450066681998844310, guid: 321663dd034db7042a26678760edb148, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8450066681998844310, guid: 321663dd034db7042a26678760edb148, type: 3}
       propertyPath: m_IsActive
@@ -669,6 +693,10 @@ PrefabInstance:
       value: Fire (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8450066681998844310, guid: 321663dd034db7042a26678760edb148, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450066681998844310, guid: 321663dd034db7042a26678760edb148, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -691,9 +719,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7930074167248200837}
     m_Modifications:
+    - target: {fileID: 169241799078364347, guid: da3fa2c8b6572d6459a6cd94f8b2d204, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3049447940556389234, guid: da3fa2c8b6572d6459a6cd94f8b2d204, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3049447940556389234, guid: da3fa2c8b6572d6459a6cd94f8b2d204, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3230810091183916625, guid: da3fa2c8b6572d6459a6cd94f8b2d204, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -786,6 +822,10 @@ PrefabInstance:
     - target: {fileID: 3371144863574354646, guid: da3fa2c8b6572d6459a6cd94f8b2d204, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476184328171143358, guid: da3fa2c8b6572d6459a6cd94f8b2d204, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da3fa2c8b6572d6459a6cd94f8b2d204, type: 3}
@@ -888,6 +928,10 @@ PrefabInstance:
     - target: {fileID: 6277506575146924782, guid: 6f39703b0cd1d674ead84a01b8c44be9, type: 3}
       propertyPath: m_Name
       value: Hitbox
+      objectReference: {fileID: 0}
+    - target: {fileID: 6277506575146924782, guid: 6f39703b0cd1d674ead84a01b8c44be9, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f39703b0cd1d674ead84a01b8c44be9, type: 3}
