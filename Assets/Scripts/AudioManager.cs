@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -50,8 +51,18 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource PeacefulMusic;
 
     //SoundOn
-    private bool music = true;
-    private bool sounds = true;
+    [SerializeField] private bool music = true;
+    [SerializeField] private bool sounds = true;
+
+    public bool IsMusicOn()
+    {
+        return music;
+    }
+
+    public bool IsSoundsOn()
+    {
+        return sounds;
+    }
 
     public void MusicOff()
     {
@@ -59,11 +70,27 @@ public class AudioManager : MonoBehaviour
         {
             music = false;
             MainMenu.Stop();
+            PeacefulMusic.Stop();
+            WarMusic.Stop();
         }
         else
         {
-            MainMenu.Play();
             music = true;
+            if (SceneManager.GetActiveScene().name == "Gameplay")
+            {
+                if (GameManager.Instance.warTime)
+                {
+                    PlayWarMusic();
+                }
+                else
+                {
+                    PlayGameplayTheme();
+                }
+            }
+            else
+            {
+                MainMenu.Play();
+            }
         }
     }
 
@@ -84,6 +111,7 @@ public class AudioManager : MonoBehaviour
         if (music)
         {
             PeacefulMusic.Stop();
+            WarMusic.Stop();
             MainMenu.Play();
         }
     }

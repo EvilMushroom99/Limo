@@ -43,7 +43,7 @@ public class SpikeTrap : MonoBehaviour
         {
             if (!trap.activeInHierarchy)
             {
-                if (collision.gameObject.transform.position.y >= transform.position.y - 0.3f)
+                if (collision.gameObject.transform.position.y >= transform.position.y - 0.5f)
                 {
                     activate = true;
                     AudioManager.Instance.PlaySpikeTowerActivate();

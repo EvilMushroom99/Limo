@@ -287,7 +287,7 @@ MonoBehaviour:
   pop: 5
   wood: 5
   food: 0
-  life: 150
+  life: 350
   buildingRange: {fileID: 551239707533653179}
   normal: {fileID: 604486485982949020, guid: 3e044a9cac637584988869257a77e38e, type: 3}
   green: {fileID: -5866773171951616500, guid: 3e044a9cac637584988869257a77e38e, type: 3}

@@ -27,6 +27,7 @@ public class UIManager : MonoBehaviour
 
     //Control
     [SerializeField] Animator fade;
+    [SerializeField] GameObject pauseMenu;
 
     //Resources
     [SerializeField] private Text population;
@@ -80,7 +81,7 @@ public class UIManager : MonoBehaviour
     public void NextPage()
     {
         AudioManager.Instance.PlayMenuSelectionBuilding();
-        if (pageCount < 4)
+        if (pageCount < 5)
         {
             pageCount += 1;
             tutorials[pageCount - 1].SetActive(false);
@@ -271,6 +272,18 @@ public class UIManager : MonoBehaviour
         {
             Time.timeScale = 2;
         }
+    }
+
+    public void Question()
+    {
+        AudioManager.Instance.PlayMenuSelectionBuilding();
+        pauseMenu.SetActive(true);
+    }
+
+    public void Stay()
+    {
+        AudioManager.Instance.PlayMenuSelectionBuilding();
+        pauseMenu.SetActive(false);
     }
 
     public void ReturnToMenu()

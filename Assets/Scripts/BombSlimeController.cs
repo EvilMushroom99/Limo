@@ -63,7 +63,7 @@ public class BombSlimeController : MonoBehaviour
                 }
 
             }
-            else if (Vector2.Distance(transform.position, currentTarget.transform.position) < 0.4f)
+            else if (Vector2.Distance(transform.position, currentTarget.transform.GetChild(0).position) < 0.4f)
             {
                 if (!attacking)
                 {
@@ -204,11 +204,22 @@ public class BombSlimeController : MonoBehaviour
                 break;
 
             case "Bomb":
-                FireBallBomb bomb = collision.GetComponent<FireBallBomb>();
-                TakeDamage(bomb.MakeDamage());
-                AudioManager.Instance.PlaySlimeHit();
-                hit = true;
-                hitTime = 0.25f;
+                if (collision.gameObject.name.StartsWith("BlackHole"))
+                {
+                    BlackHoleBomb blackHoleBomb = collision.GetComponent<BlackHoleBomb>();
+                    TakeDamage(blackHoleBomb.MakeDamage());
+                    AudioManager.Instance.PlaySlimeHit();
+                    hit = true;
+                    hitTime = 0.25f;
+                }
+                else
+                {
+                    FireBallBomb bomb = collision.GetComponent<FireBallBomb>();
+                    TakeDamage(bomb.MakeDamage());
+                    AudioManager.Instance.PlaySlimeHit();
+                    hit = true;
+                    hitTime = 0.25f;
+                }
                 break;
 
             case "Trap":

@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         {
             if (!spawningTime && totalSlimes <= 0 && warTime)
             {
-                if (wave != 31)
+                if (wave != 50)
                 {
                     AudioManager.Instance.PlayWaveCompleted();
                     UIManager.Instance.WaveTarget("Wave Completed");
@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseWave()
     {
-        if (wave == 31 || gameover)
+        if (wave == 50 || gameover)
         {
             return;
         }
@@ -175,13 +175,13 @@ public class GameManager : MonoBehaviour
         switch (building)
         {
             case 0://House
-                if (food >= 5 && wood >= 5)
+                if (food >= 10 && wood >= 5)
                 {
                     return true;
                 }
                 break;
             case 1://Sawnmill
-                if (food >= 5 && wood >= 5)
+                if (food >= 10 && wood >= 5)
                 {
                     return true;
                 }
@@ -199,7 +199,7 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case 4://FireTower
-                if (population >= 30 && wood >= 20)
+                if (population >= 15 && wood >= 10)
                 {
                     return true;
                 }
@@ -217,7 +217,7 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case 7://VoidTower
-                if (population >= 250 && wood >= 250)
+                if (population >= 50 && wood >= 50)
                 {
                     return true;
                 }
@@ -233,155 +233,325 @@ public class GameManager : MonoBehaviour
         switch (wave)
         {
             case 1:
-                SpawnSlimes(4, 1f, "Common");
+                SpawnSlimes(2, 1f, "Common");
                 break;
 
             case 2:
-                SpawnSlimes(7, 2f, "Common");
+                SpawnSlimes(4, 2f, "Common");
                 break;
 
             case 3:
-                SpawnSlimes(4, 2f, "Common");
-                SpawnSlimes(2, 2f, "Archer");
+                SpawnSlimes(6, 2f, "Common");
                 break;
 
             case 4:
-                SpawnSlimes(4, 2f, "Common");
-                SpawnSlimes(4, 2f, "Archer");
+                SpawnSlimes(8, 2f, "Common");
                 break;
 
             case 5:
-                SpawnSlimes(1, 2f, "Tank");
-                SpawnSlimes(4, 2f, "Common");
+                SpawnSlimes(10, 2f, "Common");
                 break;
             case 6:
-                SpawnSlimes(1, 2f, "Tank");
-                SpawnSlimes(3, 3f, "Archer");
-                SpawnSlimes(3, 2f, "Common");
+                SpawnSlimes(5, 2f, "Common");
+                SpawnSlimes(5, 2f, "Common");
                 break;
             case 7:
-                SpawnSlimes(3, 2f, "Tank");
-                SpawnSlimes(3, 3f, "Archer");
-                SpawnSlimes(3, 2f, "Rapid");
+                SpawnSlimes(7, 2f, "Common");
+                SpawnSlimes(7, 2f, "Common");
                 break;
             case 8:
-                SpawnSlimes(5, 2f, "Tank");
-                SpawnSlimes(3, 2f, "Bomb");
-                SpawnSlimes(3, 2f, "Rapid");
-                SpawnSlimes(3, 2f, "Common");
+                SpawnSlimes(5, 2f, "Common");
+                SpawnSlimes(5, 2f, "Common");
+                SpawnSlimes(5, 2f, "Common");
                 break;
             case 9:
-                SpawnSlimes(20, 2f, "Bomb");
+                SpawnSlimes(3, 2f, "Common");
+                SpawnSlimes(3, 2f, "Common");
+                SpawnSlimes(3, 2f, "Common");
+                SpawnSlimes(3, 2f, "Common");
+                SpawnSlimes(3, 2f, "Common");
+                SpawnSlimes(3, 2f, "Common");
                 break;
             case 10:
-                SpawnSlimes(20, 2f, "Common");
-                SpawnSlimes(8,  2f, "Archer");
-                SpawnSlimes(8,  2f, "Bomb");
+                SpawnSlimes(5, 2f, "Common");
+                SpawnSlimes(5, 2f, "Common");
+                SpawnSlimes(5, 2f, "Common");
+                SpawnSlimes(5, 2f, "Common");
                 break;
             case 11:
-                SpawnSlimes(10, 2f, "Common");
-                SpawnSlimes(5,  2f, "Archer");
+                SpawnSlimes(10, 2f, "Archer");
+                SpawnSlimes(5,  2f, "Common");
                 break;
             case 12:
-                SpawnSlimes(10, 2f, "Bomb");
-                SpawnSlimes(5,  2f, "Common");
-                SpawnSlimes(5,  2f, "Common");
-                SpawnSlimes(5,  2f, "Common");
-                SpawnSlimes(5,  2f, "Archer");
-                SpawnSlimes(5, 2f, "Tank");
+                SpawnSlimes(10, 2f, "Archer");
+                SpawnSlimes(10, 2f, "Common");
                 break;
             case 13:
-                SpawnSlimes(10, 2f, "Common");
-                SpawnSlimes(10, 2f, "Archer");
-                SpawnSlimes(10, 2f, "Bomb");
-                SpawnSlimes(5, 2f, "Tank");
+                SpawnSlimes(12, 2f, "Archer");
+                SpawnSlimes(12, 2f, "Common");
                 break;
             case 14:
-                SpawnSlimes(5,  2f, "Common");
-                SpawnSlimes(5,  2f, "Archer");
-                SpawnSlimes(15, 2f, "Bomb");
-                SpawnSlimes(5, 2f, "Tank");
-                break;
-            case 15:
-                SpawnSlimes(30, 1f, "Common");
-                SpawnSlimes(5,  4f, "Archer");
-                SpawnSlimes(5,  4f, "Bomb");
-                SpawnSlimes(5, 2f, "Tank");
-                break;
-            case 16:
-                SpawnSlimes(20, 1f, "Rapid");
-                break;
-            case 17:
-                SpawnSlimes(5,  1f, "Rapid");
-                SpawnSlimes(5,  2f, "Common");
-                SpawnSlimes(5,  2f, "Archer");
-                SpawnSlimes(10, 2f, "Bomb");
-                SpawnSlimes(5, 2f, "Tank");
-                break;
-            case 18:
-                SpawnSlimes(15, 1f, "Rapid");
-                SpawnSlimes(10, 2f, "Archer");
-                break;
-            case 19:
-                SpawnSlimes(15, 1f, "Rapid");
-                SpawnSlimes(10, 2f, "Bomb");
-                break;
-            case 20:
-                SpawnSlimes(15, 1f, "Rapid");
-                SpawnSlimes(10, 2f, "Bomb");
-                SpawnSlimes(10, 2f, "Archer");
+                SpawnSlimes(15, 2f, "Archer");
                 SpawnSlimes(15, 2f, "Common");
                 break;
-            case 21:
-                SpawnSlimes(15, 2f, "Tank");
-                SpawnSlimes(5,  2f, "Archer");
-                break;
-            case 22:
-                SpawnSlimes(20, 2f, "Tank");
-                SpawnSlimes(20,  2f, "Rapid");
-                break;
-            case 24:
-                SpawnSlimes(15, 2f, "Tank");
-                SpawnSlimes(15, 2f, "Rapid");
+            case 15:
                 SpawnSlimes(15, 2f, "Archer");
                 SpawnSlimes(20, 2f, "Common");
                 break;
-            case 25:
-                SpawnSlimes(25, 2f, "Tank");
-                SpawnSlimes(25, 2f, "Rapid");
+            case 16:
+                SpawnSlimes(5, 2f, "Archer");
+                SpawnSlimes(5, 2f, "Archer");
+                SpawnSlimes(5, 2f, "Archer");
+                SpawnSlimes(5, 2f, "Common");
+                SpawnSlimes(5, 2f, "Common");
+                SpawnSlimes(5, 2f, "Common");
+                break;
+            case 17:
+                SpawnSlimes(15, 2f, "Archer");
+                SpawnSlimes(15, 2f, "Common");
+                SpawnSlimes(5,  2f, "Archer");
+                SpawnSlimes(10, 2f, "Common");
+                break;
+            case 18:
                 SpawnSlimes(25, 2f, "Archer");
-                SpawnSlimes(20, 2f, "Common");
-                SpawnSlimes(20, 2f, "Bomb");
+                SpawnSlimes(25, 2f, "Common");
+                break;
+            case 19:
+                SpawnSlimes(15, 2f, "Archer");
+                SpawnSlimes(10, 2f, "Common");
+                break;
+            case 20:
+                SpawnSlimes(10, 2f, "Archer");
+                SpawnSlimes(15, 2f, "Archer");
+                SpawnSlimes(15, 2f, "Common");
+                SpawnSlimes(15, 2f, "Common");
+                break;
+            case 21:
+                SpawnSlimes(10, 2f, "Tank");
+                break;
+            case 22:
+                SpawnSlimes(6, 2f, "Tank");
+                SpawnSlimes(6, 2f, "Tank");
+                SpawnSlimes(6, 2f, "Tank");
+                break;
+            case 23:
+                SpawnSlimes(10, 2f, "Tank");
+                SpawnSlimes(20, 2f, "Archer");
+                break;
+            case 24:
+                SpawnSlimes(15, 2f, "Tank");
+                SpawnSlimes(15, 2f, "Archer");
+                SpawnSlimes(15, 2f, "Common");
+                break;
+            case 25:
+                SpawnSlimes(3, 2f, "Tank");
+                SpawnSlimes(3, 2f, "Tank");
+                SpawnSlimes(3, 2f, "Tank");
+                SpawnSlimes(4, 2f, "Archer");
+                SpawnSlimes(4, 2f, "Archer");
+                SpawnSlimes(4, 2f, "Archer");
+                SpawnSlimes(5, 2f, "Common");
+                SpawnSlimes(5, 2f, "Common");
+                SpawnSlimes(5, 2f, "Common");
                 break;
             case 26:
-                SpawnSlimes(50, 2f, "Tank");
-                SpawnSlimes(20, 2f, "Bomb");
+                SpawnSlimes(5, 2f, "Tank");
+                SpawnSlimes(5, 2f, "Tank");
+                SpawnSlimes(5, 2f, "Tank");
+                SpawnSlimes(5, 2f, "Archer");
+                SpawnSlimes(5, 2f, "Archer");
+                SpawnSlimes(5, 2f, "Archer");
+                SpawnSlimes(5, 2f, "Common");
+                SpawnSlimes(5, 2f, "Common");
+                SpawnSlimes(5, 2f, "Common");
                 break;
             case 27:
-                SpawnSlimes(50, 2f, "Archer");
-                SpawnSlimes(50, 2f, "Bomb");
+                SpawnSlimes(20, 2f, "Tank");
+                SpawnSlimes(20, 2f, "Archer");
+                SpawnSlimes(20, 2f, "Common");
                 break;
             case 28:
-                SpawnSlimes(50, 2f, "Tank");
-                SpawnSlimes(50, 2f, "Rapid");
-                SpawnSlimes(50, 2f, "Common");
+                SpawnSlimes(30, 2f, "Tank");
+                SpawnSlimes(20, 2f, "Archer");
+                SpawnSlimes(25, 2f, "Common");
                 break;
             case 29:
-                SpawnSlimes(50, 2f, "Tank");
-                SpawnSlimes(50, 2f, "Rapid");
-                SpawnSlimes(50, 2f, "Common");
-                SpawnSlimes(50, 2f, "Archer");
-                SpawnSlimes(50, 2f, "Bomb");
+                SpawnSlimes(10, 2f, "Tank");
+                SpawnSlimes(10, 2f, "Tank");
+                SpawnSlimes(10, 2f, "Tank");
+                SpawnSlimes(10, 2f, "Archer");
+                SpawnSlimes(10, 2f, "Archer");
+                SpawnSlimes(10, 2f, "Archer");
+                SpawnSlimes(10, 2f, "Common");
+                SpawnSlimes(10, 2f, "Common");
+                SpawnSlimes(10, 2f, "Common");
                 break;
             case 30:
-                SpawnSlimes(80, 2f, "Tank");
-                SpawnSlimes(80, 2f, "Rapid");
-                SpawnSlimes(80, 2f, "Common");
-                SpawnSlimes(80, 2f, "Archer");
-                SpawnSlimes(80, 2f, "Bomb");
+                SpawnSlimes(30, 2f, "Common");
+                SpawnSlimes(30, 2f, "Common");
+                SpawnSlimes(30, 2f, "Common");
                 break;
             case 31:
-                SpawnSlimes(1, 2f, "Boss");
+                SpawnSlimes(30, 1f, "Bomb");
+                break;
+            case 32:
+                SpawnSlimes(10, 2f, "Bomb");
+                SpawnSlimes(10, 2f, "Bomb");
+                SpawnSlimes(10, 2f, "Bomb");
+                SpawnSlimes(15, 2f, "Tank");
+                break;
+            case 33:
+                SpawnSlimes(36, 2f, "Bomb");
+                SpawnSlimes(15, 2f, "Tank");
+                SpawnSlimes(20, 2f, "Archer");
+                SpawnSlimes(20, 2f, "Common");
+                break;
+            case 34:
+                SpawnSlimes(15, 2f, "Bomb");
+                SpawnSlimes(15, 2f, "Bomb");
+                SpawnSlimes(15, 2f, "Bomb");
+                SpawnSlimes(15, 2f, "Tank");
+                SpawnSlimes(15, 2f, "Tank");
+                SpawnSlimes(15, 2f, "Archer");
+                SpawnSlimes(15, 2f, "Archer");
+                SpawnSlimes(15, 2f, "Common");
+                SpawnSlimes(15, 2f, "Common");
+                break;
+            case 35:
+                SpawnSlimes(45, 2f, "Bomb");
+                SpawnSlimes(30, 2f, "Tank");
+                SpawnSlimes(30, 2f, "Archer");
+                SpawnSlimes(30, 2f, "Common");
+                break;
+            case 36:
+                SpawnSlimes(20, 2f, "Bomb");
+                SpawnSlimes(20, 2f, "Bomb");
+                SpawnSlimes(20, 2f, "Bomb");
+                SpawnSlimes(20, 2f, "Tank");
+                SpawnSlimes(20, 2f, "Tank");
+                SpawnSlimes(20, 2f, "Archer");
+                SpawnSlimes(20, 2f, "Archer");
+                SpawnSlimes(20, 2f, "Common");
+                SpawnSlimes(20, 2f, "Common");
+                break;
+            case 37:
+                SpawnSlimes(120, 2f, "Bomb");
+                SpawnSlimes(120, 2f, "Common");
+                break;
+            case 38:
+                SpawnSlimes(60, 2f, "Bomb");
+                SpawnSlimes(30, 1f, "Tank");
+                break;
+            case 39:
+                SpawnSlimes(60, 2f, "Bomb");
+                SpawnSlimes(30, 1f, "Tank");
+                SpawnSlimes(25, 2f, "Archer");
+                break;
+            case 40:
+                SpawnSlimes(60, 2f, "Bomb");
+                SpawnSlimes(30, 1f, "Tank");
+                SpawnSlimes(25, 2f, "Archer");
+                SpawnSlimes(80, 2f, "Common");
+                break;
+            case 41:
+                SpawnSlimes(200, 1f, "Rapid");
+                break;
+            case 42:
+                SpawnSlimes(150, 2f, "Rapid");
+                SpawnSlimes(30,  1f, "Tank");
+                SpawnSlimes(20,  2f, "Bomb");
+                break;
+            case 43:
+                SpawnSlimes(50, 2f, "Rapid");
+                SpawnSlimes(30, 1f, "Tank");
+                SpawnSlimes(20, 2f, "Bomb");
+                SpawnSlimes(25, 2f, "Archer");
+                SpawnSlimes(80, 2f, "Common");
+                break;
+            case 44:
+                SpawnSlimes(50, 1f, "Rapid");
+                SpawnSlimes(50, 1f, "Tank");
+                SpawnSlimes(40, 2f, "Bomb");
+                SpawnSlimes(50, 2f, "Archer");
+                SpawnSlimes(40, 2f, "Common");
+                break;
+            case 45:
+                SpawnSlimes(25, 10f, "Rapid");
+                SpawnSlimes(25, 10f, "Rapid");
+                SpawnSlimes(25, 13f, "Rapid");
+                SpawnSlimes(25, 10f, "Tank");
+                SpawnSlimes(25, 10f, "Tank");
+                SpawnSlimes(25, 13f, "Tank");
+                SpawnSlimes(20, 10f, "Bomb");
+                SpawnSlimes(20, 12f, "Bomb");
+                SpawnSlimes(20, 12f, "Bomb");
+                SpawnSlimes(25, 12f, "Archer");
+                SpawnSlimes(25, 12f, "Archer");
+                SpawnSlimes(25, 12f, "Archer");
+                SpawnSlimes(40, 12f, "Common");
+                SpawnSlimes(40, 12f, "Common");
+                SpawnSlimes(40, 12f, "Common");
+                break;
+            case 46:
+                SpawnSlimes(30, 11f, "Rapid");
+                SpawnSlimes(30, 11f, "Rapid");
+                SpawnSlimes(30, 13f, "Rapid");
+                SpawnSlimes(30, 11f, "Tank");
+                SpawnSlimes(30, 11f, "Tank");
+                SpawnSlimes(30, 13f, "Tank");
+                SpawnSlimes(30, 11f, "Bomb");
+                SpawnSlimes(30, 12f, "Bomb");
+                SpawnSlimes(30, 12f, "Bomb");
+                SpawnSlimes(30, 12f, "Archer");
+                SpawnSlimes(30, 12f, "Archer");
+                SpawnSlimes(30, 12f, "Archer");
+                SpawnSlimes(30, 12f, "Common");
+                SpawnSlimes(30, 12f, "Common");
+                SpawnSlimes(30, 12f, "Common");
+                break;
+            case 47:
+                SpawnSlimes(40, 11f, "Rapid");
+                SpawnSlimes(40, 11f, "Rapid");
+                SpawnSlimes(40, 10f, "Rapid");
+                SpawnSlimes(40, 11f, "Tank");
+                SpawnSlimes(40, 11f, "Tank");
+                SpawnSlimes(40, 10f, "Tank");
+                SpawnSlimes(40, 11f, "Bomb");
+                SpawnSlimes(40, 12f, "Bomb");
+                SpawnSlimes(40, 10f, "Bomb");
+                SpawnSlimes(40, 12f, "Archer");
+                SpawnSlimes(40, 12f, "Archer");
+                SpawnSlimes(40, 10f, "Archer");
+                SpawnSlimes(40, 12f, "Common");
+                SpawnSlimes(40, 12f, "Common");
+                SpawnSlimes(40, 10f, "Common");
+                break;
+            case 48:
+                SpawnSlimes(50, 12f, "Rapid");
+                SpawnSlimes(50, 12f, "Rapid");
+                SpawnSlimes(50, 12f, "Rapid");
+                SpawnSlimes(50, 12f, "Tank");
+                SpawnSlimes(50, 12f, "Tank");
+                SpawnSlimes(50, 12f, "Tank");
+                SpawnSlimes(50, 12f, "Bomb");
+                SpawnSlimes(50, 12f, "Bomb");
+                SpawnSlimes(50, 12f, "Bomb");
+                SpawnSlimes(50, 12f, "Archer");
+                SpawnSlimes(50, 12f, "Archer");
+                SpawnSlimes(50, 12f, "Archer");
+                SpawnSlimes(50, 12f, "Common");
+                SpawnSlimes(50, 12f, "Common");
+                SpawnSlimes(50, 12f, "Common");
+                break;
+            case 49:
+                SpawnSlimes(25, 2f, "Rapid");
+                SpawnSlimes(25, 2f, "Tank");
+                SpawnSlimes(25, 2f, "Bomb");
+                SpawnSlimes(25, 2f, "Archer");
+                SpawnSlimes(25, 2f, "Common");
+                break;
+            case 50:
+                SpawnSlimes(1, 1f, "Boss");
                 break;
         }
     }

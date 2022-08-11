@@ -63,7 +63,7 @@ public class SlimeController : MonoBehaviour
                 }
 
             }
-            else if (Vector2.Distance(transform.position, currentTarget.transform.position) < 0.5f)
+            else if (Vector2.Distance(transform.position, currentTarget.transform.GetChild(0).position) < 0.5f)
             {
                 if (!attacking)
                 {

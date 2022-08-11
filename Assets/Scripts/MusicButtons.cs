@@ -6,8 +6,38 @@ public class MusicButtons : MonoBehaviour
     [SerializeField] private Sprite onImage;
     [SerializeField] private Sprite offImage;
     [SerializeField] private bool isMusic;
-    private bool isOn = true;
-    
+    private bool isOn;
+
+    private void Start()
+    {
+        if (isMusic)
+        {
+            if (AudioManager.Instance.IsMusicOn())
+            {
+                isOn = true;
+                GetComponent<Image>().sprite = onImage;
+            }
+            else
+            {
+                isOn = false;
+                GetComponent<Image>().sprite = offImage;
+            }
+        }
+        else
+        {
+            if (AudioManager.Instance.IsSoundsOn())
+            {
+                isOn = true;
+                GetComponent<Image>().sprite = onImage;
+            }
+            else
+            {
+                isOn = false;
+                GetComponent<Image>().sprite = offImage;
+            }
+        }
+    }
+
 
     public void ChangeState()
     {

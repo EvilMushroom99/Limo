@@ -7,8 +7,11 @@ public class TowersHitbox : MonoBehaviour
         if (collision.gameObject.CompareTag("EnemyProyectile"))
         {
             Arrow arrow = collision.gameObject.GetComponent<Arrow>();
-            GetComponentInParent<Building>().TakeDamage(arrow.MakeDamage());
-            arrow.DestroyArrow();
+            if (gameObject.activeInHierarchy)
+            {
+                GetComponentInParent<Building>().TakeDamage(arrow.MakeDamage());
+                arrow.DestroyArrow();
+            }
         }
     }
 }

@@ -31,7 +31,14 @@ public class ArcherTower : MonoBehaviour
         }
         else if(targets.Count > 0)
         {
-            target = targets[0];
+            if (targets[0] == null)
+            {
+                targets.RemoveAt(0);
+            }
+            else
+            {
+                target = targets[0];
+            }
         }
     }
 

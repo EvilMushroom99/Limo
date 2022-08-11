@@ -284,8 +284,8 @@ MonoBehaviour:
     m_Size: {x: 2, y: 2, z: 1}
   pop: 0
   wood: 5
-  food: 5
-  life: 200
+  food: 10
+  life: 450
   buildingRange: {fileID: 2196012252411423006}
   normal: {fileID: -3985759516408998331, guid: 3e044a9cac637584988869257a77e38e, type: 3}
   green: {fileID: -7011020414044352858, guid: 3e044a9cac637584988869257a77e38e, type: 3}

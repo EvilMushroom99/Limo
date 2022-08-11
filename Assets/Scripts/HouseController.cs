@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class HouseController : MonoBehaviour
 {
-    private int food;
     private int totalpop;
 
     [SerializeField] private Text popText;
@@ -11,22 +10,21 @@ public class HouseController : MonoBehaviour
 
     void Start()
     {
-        food = 0;
         totalpop = 2;
-        popText.text = "+" + food;
+        popText.text = "+" + totalpop;
     }
 
     public void GetResources()
     {
-        GameManager.Instance.IncreasePopulation(totalpop + food);
+        GameManager.Instance.IncreasePopulation(totalpop);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Food"))
         {
-            food += 1;
-            popText.text = "+" + food;
+            totalpop += 1;
+            popText.text = "+" + totalpop;
         }
     }
 
@@ -34,8 +32,8 @@ public class HouseController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Food"))
         {
-            food -= 1;
-            popText.text = "+" + food;
+            totalpop -= 1;
+            popText.text = "+" + totalpop;
         }
     }
 
